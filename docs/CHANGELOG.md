@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-10-08
+
+- Adicionado gravador de microfone real com permissão explícita, `MediaRecorder` e captura local temporária.
+- Adicionados duração, pausa/retomada quando suportadas, cancelamento, nível RMS, clipping, tratamento de erros e reprodução do áudio capturado.
+- Adicionadas rotinas de liberação de faixas, contexto de áudio e URL temporária.
+- Adicionados testes de utilitários de captura e de solicitação explícita de microfone.
+- Importação, processamento, transcrição, persistência e transporte multipista continuam fora do escopo.
+
 ## 0.2.0 — 2026-10-08
 
 - Adicionados dashboard, sessão temporária de projeto e layout de estúdio responsivo.

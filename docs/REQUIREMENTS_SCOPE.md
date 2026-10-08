@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 e 02
+# Escopo público de requisitos — Lotes 01 a 03
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -13,7 +13,7 @@ Este repositório público registra apenas os requisitos necessários para a fun
 
 ## Fora do escopo desta etapa
 
-Gravação, importação de áudio, transcrição, editor de notas, análise tonal, harmonização, arranjo SATB, reprodução, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
+Importação de áudio, transcrição, editor de notas, análise tonal, harmonização, arranjo SATB, transporte multipista, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
 
 ## Entregas do Lote 02
 
@@ -22,3 +22,12 @@ Gravação, importação de áudio, transcrição, editor de notas, análise ton
 - Componentes reutilizáveis para estado vazio e capacidade do navegador.
 - Estados reais de carregamento/compatibilidade e mensagens de indisponibilidade.
 - Navegação, foco inicial e adaptação para telas pequenas.
+
+## Entregas do Lote 03
+
+- Permissão de microfone solicitada somente por ação explícita do usuário.
+- Captura real com `MediaRecorder` e liberação dos recursos de microfone ao concluir, cancelar, falhar ou sair do painel.
+- Duração, nível de entrada e indicação de clipping por `AnalyserNode`.
+- Pausa e retomada quando o navegador disponibiliza essas operações.
+- Reprodução do áudio capturado e mensagens para permissão negada, dispositivo indisponível e falhas de captura.
+- Áudio temporário e local à sessão: sem upload, persistência, importação, transcrição ou processamento neste lote.

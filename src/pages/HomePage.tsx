@@ -27,8 +27,8 @@ export function HomePage() {
           <button className="button primary" onClick={startSession}>Criar sessão de projeto</button>
         </div>
         <aside className="hero-panel">
-          <h2>Interface pronta para crescer</h2>
-          <p>A sessão de projeto e o estúdio funcionam nesta versão. Gravação, transcrição e harmonização continuam indisponíveis até seus lotes próprios.</p>
+          <h2>Grave uma ideia sem sair da sessão</h2>
+          <p>A sessão, o estúdio e a gravação local funcionam nesta versão. Importação, transcrição e harmonização continuam indisponíveis até seus lotes próprios.</p>
           <div className="signal" aria-hidden="true">{Array.from({ length: 18 }, (_, index) => <span key={index} />)}</div>
         </aside>
       </section>
@@ -39,7 +39,7 @@ export function HomePage() {
         <div className="foundation-grid">
           <span><strong>Sessão temporária</strong>Criação em memória, sem falsa promessa de salvamento.</span>
           <span><strong>Estúdio adaptável</strong>Layout de painéis para desktop e celular.</span>
-          <span><strong>Estados honestos</strong>Vazio, compatibilidade e recursos futuros identificados.</span>
+          <span><strong>Gravação local</strong>Permissão explícita, nível de entrada e reprodução temporária.</span>
           <span><strong>Acessibilidade inicial</strong>Foco, atalhos de conteúdo e labels claros.</span>
         </div>
       </section>

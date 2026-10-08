@@ -6,10 +6,12 @@
 | Navegação | Transição por hash para Arquitetura | Automatizado |
 | Sessão inicial | Criação em memória e abertura do Estúdio | Automatizado |
 | Interface responsiva | Painéis usam breakpoints de CSS | Verificação de código; teste visual manual pendente |
-| Compatibilidade | Estado do navegador para captura futura | Implementado; teste de navegador real pendente |
+| Gravador | Pedido apenas após clique, estado de erro por permissão negada e interface de captura | Automatizado com APIs de navegador simuladas |
+| Utilitários de áudio | Nível RMS/clipping, MIME, duração, nome e mensagens de erro | Automatizado |
+| Compatibilidade | Pré-requisitos de contexto seguro, microfone e `MediaRecorder` | Implementado; teste de navegador real pendente |
 | Tipos | Compilação TypeScript | Automatizado por comando |
 | Lint | Código de `src` e `tests` | Automatizado por comando |
 | Build estático | Bundle Vite | Automatizado por comando |
-| GitHub Pages | Fluxo de deploy | Configurado; requer primeira execução no GitHub |
+| GitHub Pages | Fluxo de deploy | Configurado e publicado; nova execução pendente após o Lote 03 |
 
-Áudio, teoria musical, SATB, armazenamento e exportação permanecem pendentes dos lotes correspondentes.
+O teste automatizado não acessa microfone físico. Gravação com hardware, pausa, reprodução, interrupção/cancelamento e gravação vazia exigem validação manual em navegador compatível.

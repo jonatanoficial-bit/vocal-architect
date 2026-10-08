@@ -1,7 +1,8 @@
 const roadmap = [
-  ['01', 'Fundação profissional', 'Em execução neste repositório.', 'Atual'],
-  ['02', 'Experiência e interface premium', 'Dashboard, estúdio e componentes de interação.', 'Planejado'],
-  ['03–06', 'Captação e melodia', 'Gravação real, áudio, transcrição e editor.', 'Planejado'],
+  ['01', 'Fundação profissional', 'Base, qualidade, documentação e GitHub Pages.', 'Concluído'],
+  ['02', 'Experiência e interface premium', 'Dashboard, estúdio e componentes de interação.', 'Concluído'],
+  ['03', 'Gravação real', 'Microfone, nível de entrada, reprodução e erros.', 'Atual'],
+  ['04–06', 'Áudio e melodia', 'Importação, processamento, transcrição e editor.', 'Planejado'],
   ['07–08', 'Inteligência harmônica', 'Teoria, progressões, avaliação e arranjo SATB.', 'Planejado'],
   ['09–14', 'Ensaio, edição e exportação', 'Reprodução, mixer, persistência e formatos musicais.', 'Planejado'],
   ['15–16', 'Qualidade e lançamento', 'PWA, acessibilidade, auditoria e publicação.', 'Planejado'],

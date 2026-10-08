@@ -1,5 +1,5 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import App from '../src/App'
 
@@ -33,5 +33,34 @@ describe('Vocal Architect foundation', () => {
 
     expect(screen.getByRole('textbox', { name: /nome do projeto/i })).toHaveValue('Novo projeto')
     expect(screen.getByText(/sem salvamento local nesta versão/i)).toBeInTheDocument()
+  })
+
+  it('does not request the microphone until the user starts a recording', async () => {
+    const microphoneRequest = vi.fn().mockRejectedValue({ name: 'NotAllowedError' })
+    const originalMediaDevices = Object.getOwnPropertyDescriptor(navigator, 'mediaDevices')
+    const originalMediaRecorder = Object.getOwnPropertyDescriptor(globalThis, 'MediaRecorder')
+    const originalSecureContext = Object.getOwnPropertyDescriptor(window, 'isSecureContext')
+
+    Object.defineProperty(navigator, 'mediaDevices', { configurable: true, value: { getUserMedia: microphoneRequest } })
+    Object.defineProperty(globalThis, 'MediaRecorder', { configurable: true, value: class MediaRecorderMock {} })
+    Object.defineProperty(window, 'isSecureContext', { configurable: true, value: true })
+
+    try {
+      render(<App />)
+      fireEvent.click(screen.getByRole('button', { name: /criar sessão de projeto/i }))
+      fireEvent(window, new HashChangeEvent('hashchange'))
+      expect(microphoneRequest).not.toHaveBeenCalled()
+
+      fireEvent.click(screen.getByRole('button', { name: /iniciar gravação/i }))
+      await waitFor(() => expect(microphoneRequest).toHaveBeenCalledTimes(1))
+      expect(await screen.findByRole('alert')).toHaveTextContent(/acesso ao microfone foi negado/i)
+    } finally {
+      if (originalMediaDevices) Object.defineProperty(navigator, 'mediaDevices', originalMediaDevices)
+      else Reflect.deleteProperty(navigator, 'mediaDevices')
+      if (originalMediaRecorder) Object.defineProperty(globalThis, 'MediaRecorder', originalMediaRecorder)
+      else Reflect.deleteProperty(globalThis, 'MediaRecorder')
+      if (originalSecureContext) Object.defineProperty(window, 'isSecureContext', originalSecureContext)
+      else Reflect.deleteProperty(window, 'isSecureContext')
+    }
   })
 })

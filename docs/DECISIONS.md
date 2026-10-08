@@ -11,3 +11,7 @@
 ## ADR-003 — Sem controles de estúdio antes do motor
 
 **Decisão:** a interface comunica estado e roadmap; não mostra controles de gravação ou harmonização. **Motivo:** evita induzir o músico a acreditar que existe funcionalidade não implementada.
+
+## ADR-004 — Gravação nativa, local e iniciada por gesto
+
+**Decisão:** o Lote 03 usa `getUserMedia`, `MediaRecorder` e `AudioContext` do navegador somente após um gesto explícito de iniciar a gravação. **Motivo:** atender à captura real sem backend, preservar o controle do músico sobre a permissão e liberar os recursos assim que a sessão termina.

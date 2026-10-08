@@ -1,0 +1,34 @@
+.empty-panel-content { color: var(--muted); line-height: 1.55; }
+
+.studio-grid { grid-template-columns: minmax(19rem, 1.05fr) minmax(22rem, 1.8fr) minmax(14rem, .9fr); }
+
+.recorder { display: grid; gap: 1rem; }
+.recorder-intro { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+.recorder-name { display: grid; gap: .4rem; color: var(--muted); font-size: .76rem; font-weight: 720; }
+.recorder-name input { width: 100%; min-height: 2.6rem; padding: .55rem .65rem; border: 1px solid var(--border); border-radius: .55rem; color: var(--text); background: rgb(9 14 25 / 48%); font: inherit; }
+.recorder-name input:focus-visible { border-color: var(--primary); outline: 3px solid rgb(105 120 255 / 24%); outline-offset: 1px; }
+.recorder-name input:disabled { cursor: not-allowed; opacity: .65; }
+.recorder-controls { display: flex; flex-wrap: wrap; gap: .55rem; align-items: center; }
+.recorder-controls .button, .recording-result-actions .button { min-height: 2.4rem; margin: 0; padding: .55rem .75rem; font-size: .81rem; }
+.button.secondary { border-color: rgb(19 200 180 / 38%); color: #a5f4ea; background: rgb(19 200 180 / 11%); }
+.button.danger { border-color: rgb(255 111 122 / 42%); color: #ffd2d6; background: rgb(255 111 122 / 13%); }
+.button.quiet { border-color: var(--border); color: var(--muted); background: transparent; }
+.button.secondary:hover, .button.secondary:focus-visible, .button.danger:hover, .button.danger:focus-visible, .button.quiet:hover, .button.quiet:focus-visible { border-color: var(--primary); color: var(--text); outline: 3px solid rgb(105 120 255 / 20%); outline-offset: 1px; }
+.recorder-state { color: #b8c0ff; font-size: .82rem; }
+.recorder-monitor { display: grid; gap: .7rem; padding: .85rem; border: 1px solid rgb(19 200 180 / 25%); border-radius: .7rem; background: rgb(19 200 180 / 6%); }
+.recorder-time { display: flex; align-items: center; gap: .45rem; color: var(--text); font-variant-numeric: tabular-nums; font-weight: 760; letter-spacing: .03em; }
+.recorder-time small { color: var(--muted); font-size: .72rem; font-weight: 650; letter-spacing: normal; }
+.recording-dot { width: .55rem; height: .55rem; border-radius: 50%; background: #ff6f7a; box-shadow: 0 0 0 0 rgb(255 111 122 / 60%); animation: recorder-pulse 1.3s infinite; }
+.level-meter-wrap { display: grid; gap: .45rem; }
+.level-meter-label { display: flex; justify-content: space-between; gap: .5rem; color: var(--muted); font-size: .74rem; }
+.level-meter-label strong { color: #a5f4ea; font-variant-numeric: tabular-nums; }.level-meter-label strong.clipping { color: #ffb6be; }
+.level-meter { overflow: hidden; height: .5rem; border-radius: 999px; background: rgb(169 181 199 / 16%); }.level-meter span { display: block; width: 100%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--secondary) 0 70%, #f0b34c 82%, #ff6f7a 100%); transform: scaleX(0); transform-origin: left; transition: transform 80ms linear; }
+.recorder-monitor p { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.45; }
+.recorder-error { padding: .8rem .9rem; border: 1px solid rgb(255 111 122 / 34%); border-radius: .65rem; color: #ffd2d6; background: rgb(255 111 122 / 11%); font-size: .82rem; line-height: 1.45; }
+.recording-result { display: grid; gap: .8rem; padding: .9rem; border: 1px solid rgb(105 120 255 / 28%); border-radius: .7rem; background: rgb(105 120 255 / 8%); }.recording-result > div:first-child { display: grid; gap: .18rem; }.recording-result strong { color: var(--text); font-size: .88rem; }.recording-result span { color: var(--muted); font-size: .75rem; }.recording-result audio { width: 100%; min-height: 2.5rem; }.recording-result-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+@keyframes recorder-pulse { 70% { box-shadow: 0 0 0 .38rem transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+@media (max-width: 980px) { .studio-grid { grid-template-columns: minmax(19rem, 1fr) minmax(20rem, 1.6fr); } }
+@media (max-width: 680px) { .studio-grid { grid-template-columns: 1fr; }.recorder-controls .button { flex: 1 1 auto; }.recording-result-actions .button { flex: 1 1 9rem; } }
+@media (prefers-reduced-motion: reduce) { .recording-dot { animation: none; } }

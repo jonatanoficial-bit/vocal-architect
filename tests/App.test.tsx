@@ -33,6 +33,8 @@ describe('Vocal Architect foundation', () => {
 
     expect(screen.getByRole('textbox', { name: /nome do projeto/i })).toHaveValue('Novo projeto')
     expect(screen.getByText(/sem salvamento local nesta versão/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/escolher arquivo de áudio/i)).toBeInTheDocument()
+    expect(screen.getByText(/waveform, energia e silêncio/i)).toBeInTheDocument()
   })
 
   it('does not request the microphone until the user starts a recording', async () => {

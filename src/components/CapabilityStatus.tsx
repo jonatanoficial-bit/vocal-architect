@@ -11,6 +11,6 @@ export function CapabilityStatus() {
   })
 
   if (state === 'checking') return <div className="capability-status loading" role="status">Verificando compatibilidade do navegador…</div>
-  if (state === 'ready') return <div className="capability-status ready" role="status">Ambiente preparado para gravação futura. A captura será ativada no Lote 03.</div>
+  if (state === 'ready') return <div className="capability-status ready" role="status">Ambiente preparado para gravação. A permissão só será solicitada quando você iniciar uma captura.</div>
   return <div className="capability-status limited" role="status">Este ambiente não declara todos os requisitos de captura. Nenhuma permissão de microfone foi solicitada.</div>
 }

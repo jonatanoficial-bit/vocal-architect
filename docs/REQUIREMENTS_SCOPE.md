@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 a 03
+# Escopo público de requisitos — Lotes 01 a 04
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -13,7 +13,7 @@ Este repositório público registra apenas os requisitos necessários para a fun
 
 ## Fora do escopo desta etapa
 
-Importação de áudio, transcrição, editor de notas, análise tonal, harmonização, arranjo SATB, transporte multipista, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
+Transcrição, editor de notas, análise tonal, harmonização, arranjo SATB, transporte multipista, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
 
 ## Entregas do Lote 02
 
@@ -31,3 +31,17 @@ Importação de áudio, transcrição, editor de notas, análise tonal, harmoniz
 - Pausa e retomada quando o navegador disponibiliza essas operações.
 - Reprodução do áudio capturado e mensagens para permissão negada, dispositivo indisponível e falhas de captura.
 - Áudio temporário e local à sessão: sem upload, persistência, importação, transcrição ou processamento neste lote.
+
+## Entregas do Lote 04
+
+- Seleção de arquivo de áudio com validação de conteúdo, formato e limite de tamanho antes da decodificação.
+- Decodificação local com API nativa do navegador e redução dos canais para PCM mono.
+- Identificação de duração, taxa de amostragem, canais de origem e tamanho do PCM em memória.
+- Waveform derivada dos picos reais do PCM, análise de energia RMS e regiões de silêncio sustentadas.
+- Limites de duração e memória, descarte de URLs temporárias e mensagens claras para arquivos inválidos ou não decodificáveis.
+- Contrato de mensagens preparado para processamento em Worker futuro, sem alegar Worker ativo.
+
+## Fora do escopo do Lote 04
+
+- Remoção de ruído, análise de frequência fundamental, segmentação de frases, reconhecimento de notas, acordes ou transcrição.
+- Aceitação universal de codecs: o navegador precisa conseguir decodificar o formato selecionado.

@@ -15,3 +15,7 @@
 ## ADR-004 — Gravação nativa, local e iniciada por gesto
 
 **Decisão:** o Lote 03 usa `getUserMedia`, `MediaRecorder` e `AudioContext` do navegador somente após um gesto explícito de iniciar a gravação. **Motivo:** atender à captura real sem backend, preservar o controle do músico sobre a permissão e liberar os recursos assim que a sessão termina.
+
+## ADR-005 — PCM mono antes da transcrição
+
+**Decisão:** o Lote 04 decodifica entradas aceitas pelo navegador e reduz seus canais para PCM mono antes de calcular waveform, energia e silêncio. **Motivo:** estabelecer uma representação local previsível para o pipeline monofônico sem fingir que conteúdo polifônico já pode ser transcrito.

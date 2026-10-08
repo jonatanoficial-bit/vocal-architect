@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 — 2026-10-08
+
+- Adicionada importação local de áudio com validação de tipo/conteúdo, limite de tamanho, duração e memória.
+- Adicionadas decodificação para PCM mono, waveform real, análise de energia e regiões de silêncio sustentadas.
+- Conectada a gravação da sessão ao mesmo pipeline de análise, com descarte de URLs temporárias.
+- Adicionado contrato de mensagens para Worker futuro, sem ativar processamento em segundo plano nesta versão.
+- Adicionados testes para downmix, waveform, energia, silêncio e validação de entrada.
+- Transcrição, pitch, redução de ruído e identificação de frases ou notas continuam indisponíveis.
+
 ## 0.3.0 — 2026-10-08
 
 - Adicionado gravador de microfone real com permissão explícita, `MediaRecorder` e captura local temporária.

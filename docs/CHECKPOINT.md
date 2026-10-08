@@ -1,11 +1,11 @@
 # Checkpoint de continuidade
 
 PROJETO: VOCAL ARCHITECT  
-VERSÃO: 0.3.0
-LOTE: 03 — Gravador
+VERSÃO: 0.4.0
+LOTE: 04 — Áudio e processamento
 DATA: 2026-10-08  
 BRANCH: main  
-COMMIT: f6dbe95 — feat(audio): add real microphone recorder.
+COMMIT: pendente — será registrado após o commit da implementação.
 
 ## IMPLEMENTADO
 
@@ -21,13 +21,18 @@ COMMIT: f6dbe95 — feat(audio): add real microphone recorder.
 - Duração, pausa/retomada quando suportadas, cancelamento, nível RMS e aviso de clipping.
 - Liberação de faixas do microfone, analisador, contexto de áudio e URLs temporárias ao finalizar, cancelar, falhar ou desmontar.
 - Mensagens claras para permissão negada, microfone ausente/ocupado, restrições incompatíveis e gravação vazia.
+- Importação local de áudio com validação de tipo/extensão, conteúdo e limite de 50 MB.
+- Decodificação nativa, downmix para PCM mono, duração, taxa de amostragem e orçamento de memória de áudio decodificado.
+- Waveform de picos reais, análise RMS em janelas de 20 ms e detecção de silêncios sustentados por 300 ms.
+- Gravações recém-capturadas seguem o mesmo pipeline de análise; o arquivo/resultado só vive na sessão atual.
+- Contrato transferível preparado para Worker futuro, sem Worker ativo e sem transcrição antecipada.
 
 ## TESTADO
 
 - `pnpm run typecheck` — concluído sem erros.
 - `pnpm run lint` — concluído sem avisos.
-- `pnpm run quality` — concluído sem erros; typecheck, lint, 2 arquivos e 8 testes aprovados e build com 38 módulos.
-- `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 38 módulos.
+- `pnpm run quality` — concluído sem erros; typecheck, lint, 3 arquivos e 11 testes aprovados e build concluído.
+- `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 45 módulos.
 - Workflow remoto **Quality checks** — aprovado no commit `a595a5c` ([execução 37823950576](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950576)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `a595a5c` ([execução 37823950542](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950542)).
 
@@ -35,11 +40,12 @@ COMMIT: f6dbe95 — feat(audio): add real microphone recorder.
 
 - Teste visual manual em navegador real e nos breakpoints de referência.
 - Gravação com microfone físico, pausa/retomada, cancelamento, reprodução e gravação vazia em navegadores compatíveis.
+- Importação e decodificação de arquivos de referência reais, formatos incompatíveis, duração máxima e consumo de memória em navegador compatível.
 
 ## PRÓXIMO LOTE
 
-04 — Importação e processamento de áudio, somente após confirmação do proprietário e conclusão da validação deste lote.
+05 — Reconhecimento de notas, somente após confirmação do proprietário e conclusão da validação deste lote.
 
 ## INSTRUÇÃO DE RETOMADA
 
-Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `src/app/AppShell.tsx`, `src/features/recording/useMicrophoneRecorder.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.
+Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `src/app/AppShell.tsx`, `src/features/audio/useAudioWorkspace.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.

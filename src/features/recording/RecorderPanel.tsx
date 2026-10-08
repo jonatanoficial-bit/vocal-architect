@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { formatDuration } from '../../audio/capture/format'
+import type { CapturedRecording } from '../../audio/capture/types'
 import { useMicrophoneRecorder } from './useMicrophoneRecorder'
 
 const liveStatuses = new Set(['requesting-permission', 'recording', 'paused', 'stopping'])
 
-export function RecorderPanel() {
+export function RecorderPanel({ onRecordingReady }: { onRecordingReady?: (recording: CapturedRecording) => void }) {
   const {
     cancelRecording,
     discardRecording,
@@ -22,8 +23,15 @@ export function RecorderPanel() {
   } = useMicrophoneRecorder()
 
   const [recordingName, setRecordingName] = useState('Melodia principal')
+  const announcedRecordingId = useRef<string | null>(null)
   const isLive = liveStatuses.has(status)
   const levelPercent = Math.round(level.level * 100)
+
+  useEffect(() => {
+    if (!recording || recording.id === announcedRecordingId.current) return
+    announcedRecordingId.current = recording.id
+    onRecordingReady?.(recording)
+  }, [onRecordingReady, recording])
 
   return (
     <section className="recorder" aria-label="Gravador de melodia">

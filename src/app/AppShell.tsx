@@ -26,13 +26,13 @@ function AppFrame() {
           <BrandMark />
           <span><strong>{project.name}</strong><small>Harmonia vocal assistida</small></span>
         </a>
-        <span className="status-badge">Gravador · v{project.version}</span>
+        <span className="status-badge">Áudio local · v{project.version}</span>
       </header>
       <nav className="navigation" aria-label="Navegação principal">
         {navigationItems.map((item) => <a key={item.path} href={routeHref(item.path)} aria-current={path === item.path ? 'page' : undefined}>{item.label}</a>)}
       </nav>
       <main id="main-content" tabIndex={-1}>{page}</main>
-      <footer>Vocal Architect {project.version} · Processamento local primeiro · Lote 03</footer>
+      <footer>Vocal Architect {project.version} · Processamento local primeiro · Lote 04</footer>
     </div>
   )
 }

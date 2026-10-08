@@ -4,9 +4,9 @@ Aplicação web progressiva de harmonização vocal assistida por computador. O 
 
 ## Estado atual
 
-**Versão 0.3.0 — Lote 03: Gravador.** O dashboard e o estúdio agora incluem gravação real por microfone em navegadores compatíveis: pedido explícito de permissão, nível de entrada, pausa quando suportada, encerramento, cancelamento e reprodução do `Blob` capturado. A gravação permanece apenas na sessão atual do navegador e não é enviada a servidores.
+**Versão 0.4.0 — Lote 04: Áudio e processamento.** Além da gravação real por microfone, o estúdio importa áudio local compatível, valida arquivo e tamanho, decodifica para PCM mono, calcula waveform, energia e regiões de silêncio. Todo o processamento ocorre na aba; o arquivo não é enviado a servidores.
 
-Importação, processamento de áudio, transcrição, harmonia, transporte multipista, persistência e exportação ainda **não** estão disponíveis. Para gravar, abra o app por HTTPS (como o GitHub Pages) ou em `localhost` e conceda permissão ao microfone.
+Transcrição de notas, harmonia, transporte multipista, persistência e exportação ainda **não** estão disponíveis. Para gravar, abra o app por HTTPS (como o GitHub Pages) ou em `localhost` e conceda permissão ao microfone. A importação é limitada a 50 MB, até 10 minutos e aos formatos que o navegador conseguir decodificar.
 
 ## Desenvolvimento
 

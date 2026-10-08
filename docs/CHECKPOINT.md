@@ -25,7 +25,8 @@ COMMIT FUNCIONAL: e7879fe — feat(transcription): add local monophonic note rec
 - `pnpm run test` — 4 arquivos e 15 testes aprovados.
 - `pnpm run quality` — concluído sem erros; typecheck, lint, testes e build executados.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 52 módulos.
-- Workflows remotos do Lote 05 — pendentes após o push deste checkpoint.
+- Workflow remoto **Quality checks** — aprovado no commit `e1a052b` ([execução 37833504960](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37833504960)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `e1a052b` ([execução 37833504886](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37833504886)).
 
 ## NÃO TESTADO
 

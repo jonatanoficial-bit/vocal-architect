@@ -5,7 +5,7 @@ VERSÃO: 0.1.0
 LOTE: 01 — Fundação  
 DATA: 2026-10-08  
 BRANCH: main  
-COMMIT: ainda não disponível — este checkpoint integra o primeiro commit.
+COMMIT: b7953c1 — feat: establish Vocal Architect foundation.
 
 ## IMPLEMENTADO
 

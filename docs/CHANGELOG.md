@@ -6,3 +6,4 @@
 - Adicionadas navegação estática por hash, identidade visual e design tokens.
 - Adicionados testes iniciais, scripts de qualidade e workflows de CI/GitHub Pages.
 - Registrados escopo público do Lote 01, arquitetura, decisões e checkpoint.
+- Confirmado o workflow remoto de qualidade; registrado bloqueio de ativação do GitHub Pages.

@@ -24,10 +24,11 @@ COMMIT: b7953c1 — feat: establish Vocal Architect foundation.
 - `pnpm run test` — 1 arquivo e 2 testes aprovados.
 - `pnpm run build` — concluído; bundle estático gerado.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/`.
+- Workflow remoto **Quality checks** — aprovado no commit `8446cec`.
 
 ## NÃO TESTADO
 
-- GitHub Actions e GitHub Pages, pois dependem do primeiro push e da configuração de Pages no repositório.
+- GitHub Pages — o workflow alcançou `actions/configure-pages@v5`, mas falhou porque o Pages ainda não está habilitado para GitHub Actions. Habilitar em **Settings → Pages → Source: GitHub Actions** e reexecutar o workflow.
 - Testes de áudio e musicalidade, não aplicáveis ao Lote 01.
 
 ## PRÓXIMO LOTE

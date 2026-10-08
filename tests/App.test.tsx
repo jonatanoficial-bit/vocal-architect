@@ -12,10 +12,11 @@ describe('Vocal Architect foundation', () => {
     window.location.hash = ''
   })
 
-  it('renders the project dashboard without claiming unavailable features', () => {
+  it('renders the project dashboard with the available monophonic transcription scope', () => {
     render(<App />)
     expect(screen.getByRole('heading', { name: /o seu estúdio para projetar vozes/i })).toBeInTheDocument()
-    expect(screen.getByText(/continuam indisponíveis/i)).toBeInTheDocument()
+    expect(screen.getByText(/leitura monofônica de notas funcionam/i)).toBeInTheDocument()
+    expect(screen.getByText(/harmonização e edição de melodia continuam/i)).toBeInTheDocument()
   })
 
   it('navigates to the architecture page through the hash router', () => {
@@ -34,7 +35,8 @@ describe('Vocal Architect foundation', () => {
     expect(screen.getByRole('textbox', { name: /nome do projeto/i })).toHaveValue('Novo projeto')
     expect(screen.getByText(/sem salvamento local nesta versão/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/escolher arquivo de áudio/i)).toBeInTheDocument()
-    expect(screen.getByText(/waveform, energia e silêncio/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /transcrição monofônica/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /reconhecer notas/i })).toBeDisabled()
   })
 
   it('does not request the microphone until the user starts a recording', async () => {

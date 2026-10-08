@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { createAudioAnalysis } from '../../audio/processing/analysis'
 import { decodeAudioBlob } from '../../audio/processing/browserDecoder'
-import type { AudioAnalysis, AudioAsset, AudioProcessingStatus, AudioSourceKind } from '../../audio/processing/types'
+import type { AudioAnalysis, AudioAsset, AudioProcessingStatus, AudioSourceKind, DecodedAudio } from '../../audio/processing/types'
 import { validateAudioBlob, validateDecodedAudio } from '../../audio/processing/validation'
 import type { CapturedRecording } from '../../audio/capture/types'
 
@@ -25,6 +25,7 @@ function processingErrorMessage(error: unknown) {
 export function useAudioWorkspace() {
   const [analysis, setAnalysis] = useState<AudioAnalysis | null>(null)
   const [asset, setAsset] = useState<AudioAsset | null>(null)
+  const [decodedAudio, setDecodedAudio] = useState<DecodedAudio | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [status, setStatus] = useState<AudioProcessingStatus>('idle')
   const activeRequestRef = useRef(0)
@@ -75,6 +76,7 @@ export function useAudioWorkspace() {
         source,
       })
       setAnalysis(nextAnalysis)
+      setDecodedAudio(decodedAudio)
       setStatus('ready')
     } catch (processingError) {
       if (disposedRef.current || requestId !== activeRequestRef.current) return
@@ -92,6 +94,7 @@ export function useAudioWorkspace() {
     assetUrlRef.current = null
     setAnalysis(null)
     setAsset(null)
+    setDecodedAudio(null)
     setError(null)
     setStatus('idle')
   }, [])
@@ -105,5 +108,5 @@ export function useAudioWorkspace() {
     }
   }, [])
 
-  return { analysis, asset, clearAudio, error, importAudioFile, processRecordedAudio, status }
+  return { analysis, asset, clearAudio, decodedAudio, error, importAudioFile, processRecordedAudio, status }
 }

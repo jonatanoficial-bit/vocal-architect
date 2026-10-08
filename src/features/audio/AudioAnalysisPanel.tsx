@@ -26,7 +26,7 @@ export function AudioAnalysisPanel({ analysis, asset, error, onClear, status }: 
     <div className="audio-analysis">
       {isProcessing ? <div className="audio-analysis-state" role="status"><strong>Processamento local em andamento</strong><span>O áudio está sendo decodificado e analisado nesta aba.</span></div> : null}
       {error ? <div className="recorder-error" role="alert">{error}</div> : null}
-      {!asset || !analysis ? <div className="timeline-placeholder"><div className="timeline-ruler" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <i key={index} />)}</div><strong>Aguardando um áudio válido</strong><p>Grave ou importe uma linha vocal. O Lote 04 mostra dados reais de waveform, energia e silêncio; a transcrição de notas chega no Lote 05.</p></div> : null}
+      {!asset || !analysis ? <div className="timeline-placeholder"><div className="timeline-ruler" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <i key={index} />)}</div><strong>Aguardando um áudio válido</strong><p>Grave ou importe uma linha vocal. O áudio será preparado localmente antes do reconhecimento monofônico de notas.</p></div> : null}
       {asset && analysis ? <>
         <div className="audio-asset-summary"><div><p className="eyebrow">{sourceLabel(asset.source)}</p><h3>{asset.name}</h3><span>{formatDuration(analysis.durationMs)} · {formatFileSize(asset.sizeBytes)} · {asset.mimeType}</span></div><button className="button quiet" type="button" onClick={onClear}>Remover áudio</button></div>
         <Waveform waveform={analysis.waveform} />
@@ -39,7 +39,7 @@ export function AudioAnalysisPanel({ analysis, asset, error, onClear, status }: 
           <div><dt>Energia média</dt><dd>{Math.round(analysis.averageRms * 100)}%</dd></div>
         </dl>
         <section className="silence-summary" aria-labelledby="silence-title"><div><h3 id="silence-title">Regiões de silêncio</h3><span>{analysis.silenceRegions.length === 0 ? 'Nenhuma região de pelo menos 300 ms detectada.' : `${analysis.silenceRegions.length} região(ões) de pelo menos 300 ms detectada(s).`}</span></div>{analysis.silenceRegions.length > 0 ? <ol>{analysis.silenceRegions.slice(0, 4).map((region) => <li key={`${region.startMs}-${region.endMs}`}>{formatDuration(region.startMs)} — {formatDuration(region.endMs)}</li>)}</ol> : null}</section>
-        <p className="audio-analysis-note">A análise não identifica notas, acordes ou voz em conteúdo polifônico. Ela apenas prepara PCM, energia e silêncios para a transcrição posterior.</p>
+        <p className="audio-analysis-note">Esta etapa prepara PCM, energia e silêncios. O painel abaixo faz uma leitura monofônica separada; acordes e vozes sobrepostas continuam fora do escopo.</p>
       </> : null}
     </div>
   )

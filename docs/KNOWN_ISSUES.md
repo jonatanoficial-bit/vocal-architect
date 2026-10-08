@@ -9,5 +9,5 @@
 - Não há motor harmônico, arranjo SATB, instrumentos virtuais, mixer ou partitura.
 - Não há IndexedDB, exportação ou PWA instalada.
 - As sessões, os arquivos importados e as análises existem apenas enquanto a aba permanece aberta; não são projetos salvos.
-- A publicação do GitHub Pages foi confirmada até o Lote 03. O deploy do Lote 04 e a inspeção visual/manual permanecem pendentes.
+- A publicação do GitHub Pages foi confirmada para o Lote 04. A inspeção visual/manual com arquivos de referência e microfone físico ainda permanece pendente.
 - O conteúdo integral dos documentos mestres originais não foi publicado neste repositório público; somente um escopo técnico resumido é registrado.

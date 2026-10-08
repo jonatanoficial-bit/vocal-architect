@@ -7,6 +7,7 @@
 - Conectada a gravação da sessão ao mesmo pipeline de análise, com descarte de URLs temporárias.
 - Adicionado contrato de mensagens para Worker futuro, sem ativar processamento em segundo plano nesta versão.
 - Adicionados testes para downmix, waveform, energia, silêncio e validação de entrada.
+- Confirmados os workflows remotos de qualidade e GitHub Pages para esta versão.
 - Transcrição, pitch, redução de ruído e identificação de frases ou notas continuam indisponíveis.
 
 ## 0.3.0 — 2026-10-08

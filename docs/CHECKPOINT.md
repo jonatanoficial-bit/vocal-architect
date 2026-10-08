@@ -35,6 +35,8 @@ COMMIT: bc308e3 — feat(audio): add local import and analysis.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 45 módulos.
 - Workflow remoto **Quality checks** — aprovado no commit `a595a5c` ([execução 37823950576](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950576)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `a595a5c` ([execução 37823950542](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950542)).
+- Workflow remoto **Quality checks** — aprovado no commit `0806c60` ([execução 37828876153](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37828876153)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `0806c60` ([execução 37828876250](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37828876250)).
 
 ## NÃO TESTADO
 

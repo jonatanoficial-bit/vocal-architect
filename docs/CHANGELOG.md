@@ -5,6 +5,7 @@
 - Adicionados dashboard, sessão temporária de projeto e layout de estúdio responsivo.
 - Adicionados estados vazios, feedback de compatibilidade e navegação acessível.
 - Mantida a indisponibilidade explícita de áudio, harmonia, transporte e salvamento.
+- Confirmados CI e publicação por GitHub Pages.
 
 ## 0.1.0 — 2026-10-08
 

@@ -25,11 +25,12 @@ COMMIT: c02da20 — feat(ui): add responsive project studio.
 - `pnpm run test` — 1 arquivo e 3 testes aprovados.
 - `pnpm run build` — concluído; 32 módulos transformados.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/`.
+- Workflow remoto **Quality checks** — aprovado no commit `587c56c`.
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `587c56c`.
 
 ## NÃO TESTADO
 
 - Teste visual manual em navegador real e nos breakpoints de referência.
-- GitHub Actions/Pages — aguardando o push deste lote para confirmar CI e deploy.
 - Testes de áudio e musicalidade, não aplicáveis ao Lote 02.
 
 ## PRÓXIMO LOTE

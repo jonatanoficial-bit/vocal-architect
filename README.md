@@ -18,7 +18,7 @@ pnpm dev
 
 ## GitHub Pages
 
-O workflow de deploy gera arquivos estáticos com a base `/vocal-architect/`. No repositório, configure **Settings → Pages → Source: GitHub Actions** para permitir a primeira publicação. O deploy só é acionado depois das verificações de tipos, lint, testes e build.
+O workflow de deploy gera arquivos estáticos com a base `/vocal-architect/` e só publica depois das verificações de tipos, lint, testes e build. O GitHub Pages está ativo em [jonatanoficial-bit.github.io/vocal-architect](https://jonatanoficial-bit.github.io/vocal-architect/).
 
 ## Documentação
 

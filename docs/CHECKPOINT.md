@@ -30,7 +30,8 @@ COMMIT FUNCIONAL: 64c62ea — feat(melody): add local melody editor.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 58 módulos.
 - Workflow remoto **Quality checks** — aprovado no commit `e1a052b` ([execução 37833504960](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37833504960)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `e1a052b` ([execução 37833504886](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37833504886)).
-- Workflows remotos do Lote 06 — pendentes após o push deste checkpoint.
+- Workflow remoto **Quality checks** — aprovado no commit `2d50b5d` ([execução 37843759427](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37843759427)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `2d50b5d` ([execução 37843759485](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37843759485)).
 
 ## NÃO TESTADO
 

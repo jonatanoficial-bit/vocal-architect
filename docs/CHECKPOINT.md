@@ -5,7 +5,7 @@ VERSÃO: 0.4.0
 LOTE: 04 — Áudio e processamento
 DATA: 2026-10-08  
 BRANCH: main  
-COMMIT: pendente — será registrado após o commit da implementação.
+COMMIT: bc308e3 — feat(audio): add local import and analysis.
 
 ## IMPLEMENTADO
 

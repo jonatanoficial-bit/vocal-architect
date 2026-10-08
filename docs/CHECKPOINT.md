@@ -5,7 +5,7 @@ VERSÃO: 0.2.0
 LOTE: 02 — Interface premium
 DATA: 2026-10-08  
 BRANCH: main  
-COMMIT: pendente — este checkpoint será atualizado após o commit do Lote 02.
+COMMIT: c02da20 — feat(ui): add responsive project studio.
 
 ## IMPLEMENTADO
 

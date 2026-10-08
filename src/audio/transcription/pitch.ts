@@ -1,4 +1,5 @@
 import type { PitchFrame, TranscriptionConfig } from './types'
+export { midiToSpelling } from '../../music/pitch'
 
 function clamp(value: number, minimum: number, maximum: number) {
   return Math.min(maximum, Math.max(minimum, value))
@@ -26,14 +27,6 @@ export function frequencyToMidi(frequencyHz: number) {
 
 export function midiToFrequency(midi: number) {
   return 440 * 2 ** ((midi - 69) / 12)
-}
-
-export function midiToSpelling(midi: number) {
-  const pitchClasses = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B']
-  const roundedMidi = Math.round(midi)
-  const pitchClass = ((roundedMidi % 12) + 12) % 12
-  const octave = Math.floor(roundedMidi / 12) - 1
-  return `${pitchClasses[pitchClass]}${octave}`
 }
 
 export function resamplePcm(samples: Float32Array, sourceSampleRate: number, targetSampleRate: number) {

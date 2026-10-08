@@ -55,6 +55,6 @@ function TranscriptionResultView({ result }: { result: TranscriptionResult }) {
     <div className="transcription-summary"><strong>{notes.length === 0 ? 'Nenhuma nota confiável' : `${notes.length} nota${notes.length === 1 ? '' : 's'} reconhecida${notes.length === 1 ? '' : 's'}`}</strong><span>{diagnostics.acceptedFrames}/{diagnostics.analyzedFrames} janelas aceitas · pulso-base {result.tempoBpm} BPM</span></div>
     {notes.length > 0 ? <ol className="transcribed-notes" aria-label="Notas detectadas">{notes.map((note) => <DetectedNote key={note.note.id} note={note} />)}</ol> : <p className="transcription-empty">Tente uma gravação solo mais limpa, com volume estável e pouca reverberação.</p>}
     {diagnostics.warnings.length > 0 ? <ul className="transcription-warnings">{diagnostics.warnings.map((warning) => <li key={warning}>{warning}</li>)}</ul> : null}
-    <p className="transcription-note">As notas exibidas são uma primeira leitura: trechos marcados para revisão e transições contínuas devem ser corrigidos na edição musical, prevista para os próximos lotes.</p>
+    <p className="transcription-note">As notas exibidas são uma primeira leitura: trechos marcados para revisão e transições contínuas podem ser corrigidos no editor de melodia abaixo.</p>
   </div>
 }

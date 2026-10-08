@@ -2,6 +2,7 @@ import { EmptyPanel } from '../components/EmptyPanel'
 import { AudioAnalysisPanel } from '../features/audio/AudioAnalysisPanel'
 import { AudioImportPanel } from '../features/audio/AudioImportPanel'
 import { useAudioWorkspace } from '../features/audio/useAudioWorkspace'
+import { MelodyEditorPanel } from '../features/melody/MelodyEditorPanel'
 import { useProjectSession } from '../features/projects/useProjectSession'
 import { RecorderPanel } from '../features/recording/RecorderPanel'
 import { TranscriptionPanel } from '../features/transcription/TranscriptionPanel'
@@ -16,6 +17,8 @@ export function StudioPage() {
   const transcription = usePitchTranscription()
   const currentAssetId = audioWorkspace.asset?.id ?? null
   const transcriptionMatchesAsset = transcription.assetId === currentAssetId
+  const editableMelodyId = transcriptionMatchesAsset && transcription.result && audioWorkspace.asset ? `${audioWorkspace.asset.id}:${transcription.revision}` : null
+  const editableMelodyNotes = transcriptionMatchesAsset && transcription.result ? transcription.result.notes.map((entry) => entry.note) : []
 
   if (!session) {
     return <div className="page studio-empty"><EmptyPanel title="Seu estúdio está pronto para um projeto."><button className="button primary" onClick={() => { createSession(); navigateTo(routes.studio) }}>Criar sessão temporária</button><span>Esta ação cria um projeto em memória. O salvamento local será implementado no Lote 13.</span></EmptyPanel></div>
@@ -29,7 +32,7 @@ export function StudioPage() {
       </section>
       <section className="studio-grid" aria-label="Estúdio Vocal Architect">
         <aside className="studio-panel tracks-panel"><div className="panel-heading"><span>01</span><h2>Gravação</h2></div><RecorderPanel onRecordingReady={audioWorkspace.processRecordedAudio} /><AudioImportPanel onImportAudio={audioWorkspace.importAudioFile} status={audioWorkspace.status} /></aside>
-        <section className="studio-panel arrangement-panel"><div className="panel-heading"><span>02</span><h2>Área de áudio</h2></div><AudioAnalysisPanel analysis={audioWorkspace.analysis} asset={audioWorkspace.asset} error={audioWorkspace.error} onClear={() => { audioWorkspace.clearAudio(); transcription.clear() }} status={audioWorkspace.status} /><TranscriptionPanel asset={audioWorkspace.asset} decodedAudio={audioWorkspace.decodedAudio} error={transcriptionMatchesAsset ? transcription.error : null} processingStatus={audioWorkspace.status} result={transcriptionMatchesAsset ? transcription.result : null} status={transcriptionMatchesAsset ? transcription.status : 'idle'} onTranscribe={() => { if (audioWorkspace.asset && audioWorkspace.decodedAudio) void transcription.transcribe({ assetId: audioWorkspace.asset.id, decodedAudio: audioWorkspace.decodedAudio, source: audioWorkspace.asset.source }) }} /></section>
+        <section className="studio-panel arrangement-panel"><div className="panel-heading"><span>02</span><h2>Área de áudio</h2></div><AudioAnalysisPanel analysis={audioWorkspace.analysis} asset={audioWorkspace.asset} error={audioWorkspace.error} onClear={() => { audioWorkspace.clearAudio(); transcription.clear() }} status={audioWorkspace.status} /><TranscriptionPanel asset={audioWorkspace.asset} decodedAudio={audioWorkspace.decodedAudio} error={transcriptionMatchesAsset ? transcription.error : null} processingStatus={audioWorkspace.status} result={transcriptionMatchesAsset ? transcription.result : null} status={transcriptionMatchesAsset ? transcription.status : 'idle'} onTranscribe={() => { if (audioWorkspace.asset && audioWorkspace.decodedAudio) void transcription.transcribe({ assetId: audioWorkspace.asset.id, decodedAudio: audioWorkspace.decodedAudio, source: audioWorkspace.asset.source }) }} /><MelodyEditorPanel sourceId={editableMelodyId} sourceNotes={editableMelodyNotes} /></section>
         <aside className="studio-panel harmony-panel"><div className="panel-heading"><span>03</span><h2>Harmonização</h2></div><dl className="unavailable-list"><div><dt>Tonalidade</dt><dd>A definir com a melodia</dd></div><div><dt>Vozes</dt><dd>Aguardando motor SATB</dd></div><div><dt>Estilo</dt><dd>Aguardando Lote 07</dd></div></dl><p className="panel-note">Os controles ficam indisponíveis até que possam gerar resultados musicais reais.</p></aside>
         <section className="studio-panel transport-panel"><div className="panel-heading"><span>04</span><h2>Reprodução</h2></div><p>A reprodução da gravação está disponível no painel de Gravação. O transporte multipista e os instrumentos virtuais serão ativados no Lote 09.</p></section>
       </section>

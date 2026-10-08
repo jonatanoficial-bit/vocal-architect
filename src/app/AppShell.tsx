@@ -32,7 +32,7 @@ function AppFrame() {
         {navigationItems.map((item) => <a key={item.path} href={routeHref(item.path)} aria-current={path === item.path ? 'page' : undefined}>{item.label}</a>)}
       </nav>
       <main id="main-content" tabIndex={-1}>{page}</main>
-      <footer>Vocal Architect {project.version} · Processamento local primeiro · Lote 05</footer>
+      <footer>Vocal Architect {project.version} · Processamento local primeiro · Lote 06</footer>
     </div>
   )
 }

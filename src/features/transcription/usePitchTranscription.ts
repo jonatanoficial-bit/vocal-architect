@@ -18,6 +18,7 @@ function transcriptionErrorMessage(error: unknown) {
 export function usePitchTranscription() {
   const [assetId, setAssetId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [revision, setRevision] = useState(0)
   const [result, setResult] = useState<TranscriptionResult | null>(null)
   const [status, setStatus] = useState<TranscriptionStatus>('idle')
   const activeRequestRef = useRef(0)
@@ -36,6 +37,7 @@ export function usePitchTranscription() {
       const nextResult = transcribeMonophonicAudio(decodedAudio, source)
       if (requestId !== activeRequestRef.current) return
       setResult(nextResult)
+      setRevision((current) => current + 1)
       setStatus('ready')
     } catch (transcriptionError) {
       if (requestId !== activeRequestRef.current) return
@@ -49,8 +51,9 @@ export function usePitchTranscription() {
     setAssetId(null)
     setError(null)
     setResult(null)
+    setRevision(0)
     setStatus('idle')
   }, [])
 
-  return { assetId, clear, error, result, status, transcribe }
+  return { assetId, clear, error, result, revision, status, transcribe }
 }

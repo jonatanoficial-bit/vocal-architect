@@ -28,7 +28,7 @@ export function HomePage() {
         </div>
         <aside className="hero-panel">
           <h2>Leve uma ideia até a análise inicial</h2>
-          <p>A sessão, o estúdio, a gravação, a análise local e uma primeira leitura monofônica de notas funcionam nesta versão. Harmonização e edição de melodia continuam em lotes próprios.</p>
+          <p>A sessão, o estúdio, a gravação, a análise local e a correção manual de uma melodia monofônica funcionam nesta versão. Harmonização continua em lote próprio.</p>
           <div className="signal" aria-hidden="true">{Array.from({ length: 18 }, (_, index) => <span key={index} />)}</div>
         </aside>
       </section>
@@ -39,7 +39,7 @@ export function HomePage() {
         <div className="foundation-grid">
           <span><strong>Sessão temporária</strong>Criação em memória, sem falsa promessa de salvamento.</span>
           <span><strong>Estúdio adaptável</strong>Layout de painéis para desktop e celular.</span>
-          <span><strong>Melodia inicial</strong>Pitch local, confiança e notas monofônicas para revisão.</span>
+          <span><strong>Melodia revisável</strong>Pitch local, piano roll, quantização, histórico e confirmação em memória.</span>
           <span><strong>Acessibilidade inicial</strong>Foco, atalhos de conteúdo e labels claros.</span>
         </div>
       </section>

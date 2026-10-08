@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0 — 2026-10-08
+
+- Adicionado reconhecimento local de pitch monofônico por YIN a partir do PCM já decodificado.
+- Adicionados limiares de RMS/confiança, suavização temporal, confirmação de mudança de altura e segmentação em `NoteEvent` canônico.
+- Adicionado painel de transcrição explícito com frequência, confiança, duração, diagnósticos e marcação de trechos a revisar.
+- Adicionados testes sintéticos para A4, duas notas com pausa, troca de altura sustentada e vibrato moderado.
+- Documentados limite de 90 segundos, suporte apenas monofônico e ausência de métrica de precisão até existir validação com gravações vocais de referência.
+- Editor de melodia, correção de pitch, polifonia, harmonia, persistência e exportação continuam indisponíveis.
+
 ## 0.4.0 — 2026-10-08
 
 - Adicionada importação local de áudio com validação de tipo/conteúdo, limite de tamanho, duração e memória.

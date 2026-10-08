@@ -1,53 +1,49 @@
 # Checkpoint de continuidade
 
 PROJETO: VOCAL ARCHITECT  
-VERSÃO: 0.4.0
-LOTE: 04 — Áudio e processamento
+VERSÃO: 0.5.0
+LOTE: 05 — Reconhecimento de notas
 DATA: 2026-10-08  
 BRANCH: main  
-COMMIT: bc308e3 — feat(audio): add local import and analysis.
+COMMIT FUNCIONAL: e7879fe — feat(transcription): add local monophonic note recognition.
 
 ## IMPLEMENTADO
 
-- React, TypeScript, Vite e estrutura inicial por responsabilidades.
-- Navegação por hash compatível com GitHub Pages.
-- Página inicial, Arquitetura e Roadmap com comunicação honesta de escopo.
-- Tokens visuais responsivos e identidade inicial.
-- Contratos iniciais `NoteEvent`, `VocalPart` e PPQ 960.
-- Scripts de qualidade e workflows de CI/deploy.
-- Dashboard, sessão temporária em memória e estúdio responsivo.
-- Estados vazios e de compatibilidade do navegador sem solicitação de microfone.
-- Gravador local real com solicitação explícita de permissão, `MediaRecorder` e reprodução do `Blob` capturado.
-- Duração, pausa/retomada quando suportadas, cancelamento, nível RMS e aviso de clipping.
-- Liberação de faixas do microfone, analisador, contexto de áudio e URLs temporárias ao finalizar, cancelar, falhar ou desmontar.
-- Mensagens claras para permissão negada, microfone ausente/ocupado, restrições incompatíveis e gravação vazia.
-- Importação local de áudio com validação de tipo/extensão, conteúdo e limite de 50 MB.
-- Decodificação nativa, downmix para PCM mono, duração, taxa de amostragem e orçamento de memória de áudio decodificado.
-- Waveform de picos reais, análise RMS em janelas de 20 ms e detecção de silêncios sustentados por 300 ms.
-- Gravações recém-capturadas seguem o mesmo pipeline de análise; o arquivo/resultado só vive na sessão atual.
-- Contrato transferível preparado para Worker futuro, sem Worker ativo e sem transcrição antecipada.
+- Fundação React, TypeScript, Vite, rotas por hash, sessão temporária, design responsivo e deploy estático.
+- Captura local com permissão explícita, `MediaRecorder`, nível RMS, clipping, pausa quando suportada, reprodução e liberação de recursos.
+- Importação local validada, decodificação nativa, PCM mono, waveform, energia, regiões de silêncio e descarte de URLs temporárias.
+- Detector de pitch monofônico YIN em `src/audio/transcription`, com reamostragem de análise a 8 kHz, janela de 1024 amostras e salto de 256 amostras.
+- Limiar de RMS, faixa de 80–1000 Hz, confiança mínima de 72%, mediana temporal de três janelas e confirmação de cinco janelas para uma mudança de nota.
+- Segmentos convertidos em `NoteEvent` canônico com origem, frase, confiança, duração em ticks e sinalização de revisão abaixo de 85% de confiança.
+- Painel de transcrição acionado explicitamente para áudio já decodificado, com notas, frequência, intervalos, diagnósticos e limites visíveis.
+- Testes sintéticos reprodutíveis para A4, pausas, mudança sustentada de pitch e vibrato moderado.
 
 ## TESTADO
 
 - `pnpm run typecheck` — concluído sem erros.
 - `pnpm run lint` — concluído sem avisos.
-- `pnpm run quality` — concluído sem erros; typecheck, lint, 3 arquivos e 11 testes aprovados e build concluído.
-- `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 45 módulos.
-- Workflow remoto **Quality checks** — aprovado no commit `a595a5c` ([execução 37823950576](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950576)).
-- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `a595a5c` ([execução 37823950542](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950542)).
-- Workflow remoto **Quality checks** — aprovado no commit `0806c60` ([execução 37828876153](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37828876153)).
-- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `0806c60` ([execução 37828876250](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37828876250)).
+- `pnpm run test` — 4 arquivos e 15 testes aprovados.
+- `pnpm run quality` — concluído sem erros; typecheck, lint, testes e build executados.
+- `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 52 módulos.
+- Workflows remotos do Lote 05 — pendentes após o push deste checkpoint.
 
 ## NÃO TESTADO
 
-- Teste visual manual em navegador real e nos breakpoints de referência.
-- Gravação com microfone físico, pausa/retomada, cancelamento, reprodução e gravação vazia em navegadores compatíveis.
-- Importação e decodificação de arquivos de referência reais, formatos incompatíveis, duração máxima e consumo de memória em navegador compatível.
+- Inspeção visual manual em navegador real e breakpoints de referência.
+- Gravação com microfone físico, pausa/retomada, cancelamento e reprodução em navegadores compatíveis.
+- Importação/decodificação de arquivos reais, codecs incompatíveis, duração máxima e orçamento de memória em navegador compatível.
+- Comparação da transcrição com corpus vocal anotado, inclusive ruído, respiração, portamento, vibrato intenso, notas curtas, erros de oitava, acordes e vozes sobrepostas.
+
+## LIMITES ATUAIS
+
+- A transcrição é local, monofônica e limitada a 90 segundos por execução; não separa fontes nem reconhece harmonia.
+- Não há métrica de precisão declarada, redução de ruído, correção de pitch, editor, quantização, tonalidade, acordes, playback MIDI ou persistência.
+- Os resultados são leituras iniciais. O rótulo de revisão comunica incerteza, mas não substitui uma correção humana.
 
 ## PRÓXIMO LOTE
 
-05 — Reconhecimento de notas, somente após confirmação do proprietário e conclusão da validação deste lote.
+06 — Editor de melodia, somente após confirmação do proprietário e avaliação dos resultados de reconhecimento em gravações de referência.
 
 ## INSTRUÇÃO DE RETOMADA
 
-Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `src/app/AppShell.tsx`, `src/features/audio/useAudioWorkspace.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.
+Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/TRANSCRIPTION.md`, `src/features/audio/useAudioWorkspace.ts`, `src/audio/transcription/transcribe.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.

@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 a 04
+# Escopo público de requisitos — Lotes 01 a 05
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -13,7 +13,7 @@ Este repositório público registra apenas os requisitos necessários para a fun
 
 ## Fora do escopo desta etapa
 
-Transcrição, editor de notas, análise tonal, harmonização, arranjo SATB, transporte multipista, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
+Editor de notas, análise tonal, harmonização, arranjo SATB, transporte multipista, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
 
 ## Entregas do Lote 02
 
@@ -45,3 +45,18 @@ Transcrição, editor de notas, análise tonal, harmonização, arranjo SATB, tr
 
 - Remoção de ruído, análise de frequência fundamental, segmentação de frases, reconhecimento de notas, acordes ou transcrição.
 - Aceitação universal de codecs: o navegador precisa conseguir decodificar o formato selecionado.
+
+## Entregas do Lote 05
+
+- Estimativa local de frequência fundamental por YIN em PCM mono, com RMS, faixa de frequência e confiança mínima configuráveis.
+- Suavização temporal e mudança de altura persistente antes da criação de uma nova nota, para reduzir efeitos de vibrato e transições de janela.
+- Segmentos convertidos para `NoteEvent` com origem, tempo em ticks, duração, frase, confiança e indicação de revisão.
+- Painel de reconhecimento acionado explicitamente, com notas, frequência, intervalos e diagnósticos visíveis ao músico.
+- Testes reprodutíveis para pitch A4, pausas, mudança sustentada de altura e vibrato moderado.
+
+## Fora do escopo do Lote 05
+
+- Separação de acordes, múltiplas vozes, instrumentos ou fontes de áudio.
+- Remoção de ruído, identificação confiável de respiração, detecção de andamento, quantização, tonalidade ou acordes.
+- Correção de pitch, edição de notas, bloqueio manual, playback MIDI e exportação.
+- Promessa de taxa de precisão sem experimento reprodutível com gravações de referência.

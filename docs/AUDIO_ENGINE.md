@@ -21,3 +21,11 @@ A captura exige HTTPS ou `localhost`, `MediaRecorder` e um microfone disponibili
 - A análise é local e preparatória. Não remove ruído, não estima frequência, não cria frases e não identifica notas ou acordes.
 
 `workerProtocol.ts` registra o contrato transferível de análise para Worker futuro; nenhum Worker é anunciado como ativo nesta versão.
+
+## Lote 05 — Pitch e segmentação monofônica
+
+- `src/audio/transcription/pitch.ts` reamostra o PCM mono para 8 kHz e estima frequência fundamental por YIN em janelas de 1024 amostras com salto de 256 amostras.
+- Cada `PitchFrame` registra tempo, RMS, frequência, confiança e MIDI contínuo somente quando passa o limiar de confiança.
+- Uma mediana temporal de três janelas e uma confirmação de cinco janelas de mudança reduzem oscilações de vibrato e notas espúrias nas transições.
+- `src/audio/transcription/transcribe.ts` agrupa os quadros em notas MIDI, calcula duração em ticks no BPM-base de 120 e preserva origem `recorded` ou `imported`.
+- A transcrição é iniciada explicitamente pelo músico, é local e aceita no máximo 90 segundos. Não há Worker ativo, redução de ruído, separação de fontes, detecção de andamento ou correção automática.

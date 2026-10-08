@@ -19,3 +19,7 @@
 ## ADR-005 — PCM mono antes da transcrição
 
 **Decisão:** o Lote 04 decodifica entradas aceitas pelo navegador e reduz seus canais para PCM mono antes de calcular waveform, energia e silêncio. **Motivo:** estabelecer uma representação local previsível para o pipeline monofônico sem fingir que conteúdo polifônico já pode ser transcrito.
+
+## ADR-006 — YIN local com confirmação temporal para a primeira leitura de pitch
+
+**Decisão:** o Lote 05 usa YIN em PCM mono reamostrado, limiares de RMS/confiança, mediana temporal e cinco janelas persistentes antes de segmentar uma troca de nota. **Motivo:** manter o reconhecimento explicável e local, reduzir notas causadas por vibrato ou janelas de transição e expor incerteza em vez de fingir precisão universal. O resultado é uma primeira leitura monofônica revisável, não uma correção de melodia nem separação de fontes.

@@ -1,4 +1,4 @@
-# Arquitetura — Lotes 01–04
+# Arquitetura — Lotes 01–05
 
 O aplicativo é um SPA estático em React + TypeScript + Vite. A navegação usa hash (`#/arquitetura`, `#/roadmap`), mantendo recarregamento e links internos compatíveis com GitHub Pages sem servidor de fallback.
 
@@ -6,7 +6,9 @@ O aplicativo é um SPA estático em React + TypeScript + Vite. A navegação usa
 
 No Lote 03, `src/audio/capture` contém funções puras para formato, nível de entrada, compatibilidade, preferência de MIME e liberação de `MediaStream`. `src/features/recording` contém o adaptador React que coordena a máquina de estados (`idle`, pedido de permissão, gravação, pausa, finalização, pronto e erro) e a interface. A captura usa `getUserMedia`, `MediaRecorder`, `AudioContext`/`AnalyserNode` e `URL.createObjectURL` nativos; não há upload, backend ou dados demonstrativos.
 
-No Lote 04, `src/audio/processing` separa validação de entrada, decodificação de navegador, downmix para PCM mono, waveform, energia e regiões de silêncio. `src/features/audio` coordena a importação e apresenta apenas métricas derivadas do áudio decodificado. O protocolo em `workerProtocol.ts` descreve mensagens transferíveis para mover a análise a Worker em lote posterior; o processamento atual ainda ocorre na aba principal. Não há estimativa de pitch ou transcrição neste lote.
+No Lote 04, `src/audio/processing` separa validação de entrada, decodificação de navegador, downmix para PCM mono, waveform, energia e regiões de silêncio. `src/features/audio` coordena a importação e apresenta apenas métricas derivadas do áudio decodificado. O protocolo em `workerProtocol.ts` descreve mensagens transferíveis para mover a análise a Worker em lote posterior; o processamento atual ainda ocorre na aba principal.
+
+No Lote 05, `src/audio/transcription` mantém o detector YIN, reamostragem, conversões MIDI/grafia e segmentação temporal fora de React. `src/features/transcription` só coordena a solicitação explícita, o estado de execução e a apresentação de resultados. A saída continua usando `NoteEvent` do domínio musical, sem usar posições da interface como dado musical. O cálculo permanece na aba principal e é limitado a 90 segundos por execução até uma migração futura para Worker.
 
 Ao encerrar, cancelar, falhar ou desmontar o componente, as faixas do microfone são interrompidas, o contexto de análise é fechado e a URL temporária é revogada quando não é mais necessária. O áudio analisado permanece em memória enquanto a sessão estiver aberta; persistência e processamento posterior pertencem a lotes futuros.
 

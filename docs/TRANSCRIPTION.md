@@ -20,4 +20,4 @@ A mediana temporal e a mudança persistente evitam transformar vibrato moderado 
 - Ruído, reverberação, respiração, ataques fracos, portamento e erros de oitava ainda exigem avaliação humana. Não existe correção automática neste lote.
 - Os testes automatizados usam sinais sintéticos reprodutíveis. Ainda não há métrica de precisão declarada nem validação manual contra gravações vocais de referência.
 
-O editor de melodia do Lote 06 será responsável por permitir a revisão e a correção explícita dessas primeiras leituras, preservando notas bloqueadas.
+O editor de melodia do Lote 06 permite a revisão e a correção explícita dessas primeiras leituras, preservando notas bloqueadas. Consulte [`MELODY_EDITOR.md`](MELODY_EDITOR.md) para as operações e limites dessa cópia editável.

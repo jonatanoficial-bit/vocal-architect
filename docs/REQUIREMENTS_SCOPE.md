@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 a 05
+# Escopo público de requisitos — Lotes 01 a 06
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -13,7 +13,7 @@ Este repositório público registra apenas os requisitos necessários para a fun
 
 ## Fora do escopo desta etapa
 
-Editor de notas, análise tonal, harmonização, arranjo SATB, transporte multipista, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
+Harmonização, arranjo SATB, transporte multipista, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
 
 ## Entregas do Lote 02
 
@@ -60,3 +60,18 @@ Editor de notas, análise tonal, harmonização, arranjo SATB, transporte multip
 - Remoção de ruído, identificação confiável de respiração, detecção de andamento, quantização, tonalidade ou acordes.
 - Correção de pitch, edição de notas, bloqueio manual, playback MIDI e exportação.
 - Promessa de taxa de precisão sem experimento reprodutível com gravações de referência.
+
+## Entregas do Lote 06
+
+- Piano roll funcional que mostra os `NoteEvent` editáveis em ticks/MIDI, com seleção e controles de zoom visual.
+- Edição manual de altura, posição e duração; adição, duplicação, divisão, união e exclusão de notas.
+- Bloqueio explícito de notas e preservação de bloqueios durante todas as operações de edição e quantização.
+- Quantização a grades musicais, histórico limitado de operações semânticas com Undo/Redo e confirmação da melodia na sessão.
+- Análise tonal assistida baseada nas notas/durações, sem alegar confirmação musical definitiva.
+- Testes de integridade para edição, bloqueio, quantização, divisão/união, histórico e tonalidade candidata.
+
+## Fora do escopo do Lote 06
+
+- Arrastar/redimensionar notas diretamente no piano roll, reprodução MIDI, transporte e sincronização com áudio.
+- Correção automática, detecção de BPM/compasso, tonalidade definitiva, acordes, harmonia ou arranjo SATB.
+- Persistência, autosave, colaboração, importação/exportação e recuperação após recarregar a aba.

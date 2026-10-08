@@ -23,3 +23,7 @@
 ## ADR-006 — YIN local com confirmação temporal para a primeira leitura de pitch
 
 **Decisão:** o Lote 05 usa YIN em PCM mono reamostrado, limiares de RMS/confiança, mediana temporal e cinco janelas persistentes antes de segmentar uma troca de nota. **Motivo:** manter o reconhecimento explicável e local, reduzir notas causadas por vibrato ou janelas de transição e expor incerteza em vez de fingir precisão universal. O resultado é uma primeira leitura monofônica revisável, não uma correção de melodia nem separação de fontes.
+
+## ADR-007 — Edição semântica e efêmera antes de persistência
+
+**Decisão:** o Lote 06 edita uma cópia de `NoteEvent` com operações puras e histórico limitado em memória. **Motivo:** oferecer correção real, Undo/Redo e preservação de bloqueios sem corromper o áudio/transcrição de origem nem antecipar o projeto salvo do Lote 13. A confirmação de melodia vale apenas para a sessão atual e a análise tonal é apresentada como candidata, não como verdade harmônica.

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 — 2026-10-08
+
+- Adicionado editor de melodia em memória com piano roll, seleção, zoom visual e painel de propriedades baseado em ticks/MIDI.
+- Adicionadas operações canônicas para editar, adicionar, duplicar, dividir, unir, excluir, bloquear e quantizar notas, preservando bloqueios.
+- Adicionado histórico local limitado com Undo/Redo, tonalidade candidata por duração de escala e confirmação explícita da melodia.
+- Adicionados testes para edição, bloqueio, quantização, divisão/união, histórico e análise tonal assistida.
+- Documentados o caráter efêmero do editor, a ausência de reprodução/arrasto direto e a limitação da tonalidade a uma pista local.
+- Harmonia, acordes, transporte, persistência e exportação continuam indisponíveis.
+
 ## 0.5.0 — 2026-10-08
 
 - Adicionado reconhecimento local de pitch monofônico por YIN a partir do PCM já decodificado.

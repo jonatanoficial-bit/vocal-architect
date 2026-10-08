@@ -6,4 +6,6 @@ O Lote 04 adiciona contratos transitórios de áudio em `src/audio/processing/ty
 
 O Lote 05 adiciona contratos transitórios em `src/audio/transcription/types.ts`: `PitchFrame`, `TranscribedNote`, `TranscriptionDiagnostics`, `TranscriptionResult` e `TranscriptionConfig`. `TranscribedNote` contém uma `NoteEvent` canônica com `origin`, `phraseId`, `confidence`, `startTick`, `durationTicks` e `locked: false`; também preserva frequência média, desvio em cents, intervalo em milissegundos e indicador de revisão. Esses resultados ainda são efêmeros e não constituem um editor ou projeto salvo.
 
+O Lote 06 passa a editar uma cópia de `NoteEvent` por operações semânticas (`editar`, `adicionar`, `excluir`, `dividir`, `unir`, `duplicar`, `quantizar` e `bloquear`). Edições atualizam `pitchMidi`, `spelling`, `startTick` e/ou `durationTicks` com valores MIDI/ticks válidos e mudam a origem para `edited`. O histórico `EditHistory` contém snapshots locais limitados; notas bloqueadas são preservadas por edição, exclusão, divisão, união, duplicação e quantização até que o músico as desbloqueie explicitamente.
+
 Persistência, serialização e migrações ainda não existem; pertencem ao Lote 13. `ChordEvent`, histórico semântico e dados de gravação devem ser adicionados antes de seus fluxos consumidores.

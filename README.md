@@ -4,9 +4,9 @@ Aplicação web progressiva de harmonização vocal assistida por computador. O 
 
 ## Estado atual
 
-**Versão 0.5.0 — Lote 05: Reconhecimento de notas.** Além da gravação real por microfone e da análise de áudio, o estúdio estima localmente o pitch de uma linha vocal monofônica, mede confiança, agrupa mudanças persistentes e mostra notas iniciais para revisão. Todo o processamento ocorre na aba; o arquivo não é enviado a servidores.
+**Versão 0.6.0 — Lote 06: Editor de melodia.** Além da gravação, análise e transcrição monofônica locais, o estúdio oferece um piano roll para revisar a cópia musical em memória: altura, início, duração, bloqueio, divisão, união, duplicação, exclusão, quantização, Undo/Redo e confirmação explícita. Todo o processamento ocorre na aba; o arquivo não é enviado a servidores.
 
-O reconhecimento desta etapa aceita uma voz principal por vez e limita a análise a 90 segundos. Não separa acordes, vozes sobrepostas ou instrumentos, não remove ruído e não corrige notas. Harmonia, editor de melodia, transporte multipista, persistência e exportação ainda **não** estão disponíveis. Para gravar, abra o app por HTTPS (como o GitHub Pages) ou em `localhost` e conceda permissão ao microfone. A importação é limitada a 50 MB, até 10 minutos e aos formatos que o navegador conseguir decodificar.
+O reconhecimento aceita uma voz principal por vez e limita a análise a 90 segundos. A identificação tonal é apenas uma pista baseada nas notas/durações e não uma confirmação harmônica. O editor não altera o áudio original, não separa fontes, não remove ruído e não tem reprodução MIDI. Harmonia, transporte multipista, persistência e exportação ainda **não** estão disponíveis. Para gravar, abra o app por HTTPS (como o GitHub Pages) ou em `localhost` e conceda permissão ao microfone. A importação é limitada a 50 MB, até 10 minutos e aos formatos que o navegador conseguir decodificar.
 
 ## Desenvolvimento
 

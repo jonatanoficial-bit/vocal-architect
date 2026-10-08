@@ -5,7 +5,7 @@ VERSÃO: 0.3.0
 LOTE: 03 — Gravador
 DATA: 2026-10-08  
 BRANCH: main  
-COMMIT: pendente — será registrado após o commit da implementação.
+COMMIT: f6dbe95 — feat(audio): add real microphone recorder.
 
 ## IMPLEMENTADO
 

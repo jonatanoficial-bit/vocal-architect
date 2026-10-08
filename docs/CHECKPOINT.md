@@ -28,14 +28,13 @@ COMMIT: f6dbe95 — feat(audio): add real microphone recorder.
 - `pnpm run lint` — concluído sem avisos.
 - `pnpm run quality` — concluído sem erros; typecheck, lint, 2 arquivos e 8 testes aprovados e build com 38 módulos.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 38 módulos.
-- Workflow remoto **Quality checks** — aprovado no commit `587c56c`.
-- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `587c56c`.
+- Workflow remoto **Quality checks** — aprovado no commit `a595a5c` ([execução 37823950576](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950576)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `a595a5c` ([execução 37823950542](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37823950542)).
 
 ## NÃO TESTADO
 
 - Teste visual manual em navegador real e nos breakpoints de referência.
 - Gravação com microfone físico, pausa/retomada, cancelamento, reprodução e gravação vazia em navegadores compatíveis.
-- Workflows remotos de qualidade e deploy referentes ao Lote 03.
 
 ## PRÓXIMO LOTE
 

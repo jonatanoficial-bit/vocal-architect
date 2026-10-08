@@ -12,6 +12,6 @@
 | Tipos | Compilação TypeScript | Automatizado por comando |
 | Lint | Código de `src` e `tests` | Automatizado por comando |
 | Build estático | Bundle Vite | Automatizado por comando |
-| GitHub Pages | Fluxo de deploy | Configurado e publicado; nova execução pendente após o Lote 03 |
+| GitHub Pages | Fluxo de deploy | Publicado; execução remota do Lote 03 aprovada |
 
 O teste automatizado não acessa microfone físico. Gravação com hardware, pausa, reprodução, interrupção/cancelamento e gravação vazia exigem validação manual em navegador compatível.

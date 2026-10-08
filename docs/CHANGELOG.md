@@ -6,6 +6,7 @@
 - Adicionados duração, pausa/retomada quando suportadas, cancelamento, nível RMS, clipping, tratamento de erros e reprodução do áudio capturado.
 - Adicionadas rotinas de liberação de faixas, contexto de áudio e URL temporária.
 - Adicionados testes de utilitários de captura e de solicitação explícita de microfone.
+- Confirmados os workflows remotos de qualidade e GitHub Pages para esta versão.
 - Importação, processamento, transcrição, persistência e transporte multipista continuam fora do escopo.
 
 ## 0.2.0 — 2026-10-08

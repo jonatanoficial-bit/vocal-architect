@@ -12,10 +12,10 @@ describe('Vocal Architect foundation', () => {
     window.location.hash = ''
   })
 
-  it('renders an honest description of the current lot', () => {
+  it('renders the project dashboard without claiming unavailable features', () => {
     render(<App />)
-    expect(screen.getByRole('heading', { name: /um lugar sério para construir harmonia vocal/i })).toBeInTheDocument()
-    expect(screen.getByText(/ainda não estão disponíveis/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /o seu estúdio para projetar vozes/i })).toBeInTheDocument()
+    expect(screen.getByText(/continuam indisponíveis/i)).toBeInTheDocument()
   })
 
   it('navigates to the architecture page through the hash router', () => {
@@ -24,5 +24,14 @@ describe('Vocal Architect foundation', () => {
     window.location.hash = '#/arquitetura'
     fireEvent(window, new HashChangeEvent('hashchange'))
     expect(screen.getByRole('heading', { name: /uma base que não confunde tela com motor musical/i })).toBeInTheDocument()
+  })
+
+  it('creates an in-memory session before opening the studio', () => {
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: /criar sessão de projeto/i }))
+    fireEvent(window, new HashChangeEvent('hashchange'))
+
+    expect(screen.getByRole('textbox', { name: /nome do projeto/i })).toHaveValue('Novo projeto')
+    expect(screen.getByText(/sem salvamento local nesta versão/i)).toBeInTheDocument()
   })
 })

@@ -22,3 +22,7 @@ export function useHashRoute(): string {
 export function routeHref(path: RoutePath): string {
   return `#${path}`
 }
+
+export function navigateTo(path: RoutePath): void {
+  window.location.hash = path
+}

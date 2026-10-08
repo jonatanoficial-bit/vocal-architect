@@ -1,4 +1,7 @@
 import { project } from '../config/project'
+import { useProjectSession } from '../features/projects/useProjectSession'
+import { navigateTo } from '../app/useHashRoute'
+import { routes } from '../app/routes'
 
 const pillars = [
   ['Estrutura sustentável', 'Interface, domínio musical, áudio e persistência terão responsabilidades separadas.'],
@@ -7,28 +10,37 @@ const pillars = [
 ]
 
 export function HomePage() {
+  const { session, createSession } = useProjectSession()
+
+  const startSession = () => {
+    createSession()
+    navigateTo(routes.studio)
+  }
+
   return (
     <div className="page">
       <section className="hero" aria-labelledby="home-title">
         <div>
           <p className="eyebrow">{project.currentLot}</p>
-          <h1 id="home-title">Um lugar sério para construir harmonia vocal.</h1>
-          <p>O Vocal Architect será uma estação de criação para transformar uma melodia em um arranjo vocal editável, cantável e musicalmente coerente.</p>
+          <h1 id="home-title">O seu estúdio para projetar vozes.</h1>
+          <p>Crie uma sessão de trabalho e conheça o espaço onde melodia, harmonia e ensaio vocal vão se encontrar — lote por lote, sem atalhos.</p>
+          <button className="button primary" onClick={startSession}>Criar sessão de projeto</button>
         </div>
         <aside className="hero-panel">
-          <h2>Base do produto em construção</h2>
-          <p>Esta versão estabelece arquitetura, identidade e publicação. Gravação, transcrição e harmonização ainda não estão disponíveis — e não são apresentadas como se estivessem.</p>
+          <h2>Interface pronta para crescer</h2>
+          <p>A sessão de projeto e o estúdio funcionam nesta versão. Gravação, transcrição e harmonização continuam indisponíveis até seus lotes próprios.</p>
           <div className="signal" aria-hidden="true">{Array.from({ length: 18 }, (_, index) => <span key={index} />)}</div>
         </aside>
       </section>
       <section className="section" aria-labelledby="foundation-title">
-        <p className="eyebrow">O que está sendo entregue agora</p>
-        <h2 id="foundation-title">Fundação verificável</h2>
+        <p className="eyebrow">Ponto de partida</p>
+        <h2 id="foundation-title">{session ? `Sessão atual: ${session.name}` : 'Ainda não há projetos recentes'}</h2>
+        <p className="section-intro">{session ? 'A sessão atual existe nesta aba e pode ser aberta no estúdio. O salvamento permanente será implementado no Lote 13.' : 'Crie uma sessão temporária para entrar no estúdio. Projetos recentes aparecerão quando o armazenamento local estiver implementado.'}</p>
         <div className="foundation-grid">
-          <span><strong>React + TypeScript</strong>Base tipada e modular.</span>
-          <span><strong>Rotas estáticas</strong>Compatíveis com GitHub Pages.</span>
-          <span><strong>Qualidade</strong>Lint, testes, build e automação.</span>
-          <span><strong>Documentação</strong>Decisões e checkpoint para continuidade.</span>
+          <span><strong>Sessão temporária</strong>Criação em memória, sem falsa promessa de salvamento.</span>
+          <span><strong>Estúdio adaptável</strong>Layout de painéis para desktop e celular.</span>
+          <span><strong>Estados honestos</strong>Vazio, compatibilidade e recursos futuros identificados.</span>
+          <span><strong>Acessibilidade inicial</strong>Foco, atalhos de conteúdo e labels claros.</span>
         </div>
       </section>
       <section className="section" aria-labelledby="principles-title">

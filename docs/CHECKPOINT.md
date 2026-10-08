@@ -1,11 +1,11 @@
 # Checkpoint de continuidade
 
 PROJETO: VOCAL ARCHITECT  
-VERSÃO: 0.1.0  
-LOTE: 01 — Fundação  
+VERSÃO: 0.2.0
+LOTE: 02 — Interface premium
 DATA: 2026-10-08  
 BRANCH: main  
-COMMIT: b7953c1 — feat: establish Vocal Architect foundation.
+COMMIT: pendente — este checkpoint será atualizado após o commit do Lote 02.
 
 ## IMPLEMENTADO
 
@@ -15,25 +15,26 @@ COMMIT: b7953c1 — feat: establish Vocal Architect foundation.
 - Tokens visuais responsivos e identidade inicial.
 - Contratos iniciais `NoteEvent`, `VocalPart` e PPQ 960.
 - Scripts de qualidade e workflows de CI/deploy.
+- Dashboard, sessão temporária em memória e estúdio responsivo.
+- Estados vazios e de compatibilidade do navegador sem solicitação de microfone.
 
 ## TESTADO
 
-- `pnpm install --frozen-lockfile` — concluído.
 - `pnpm run typecheck` — concluído sem erros.
 - `pnpm run lint` — concluído sem avisos.
-- `pnpm run test` — 1 arquivo e 2 testes aprovados.
-- `pnpm run build` — concluído; bundle estático gerado.
+- `pnpm run test` — 1 arquivo e 3 testes aprovados.
+- `pnpm run build` — concluído; 32 módulos transformados.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/`.
-- Workflow remoto **Quality checks** — aprovado no commit `8446cec`.
 
 ## NÃO TESTADO
 
-- GitHub Pages — o workflow alcançou `actions/configure-pages@v5`, mas falhou porque o Pages ainda não está habilitado para GitHub Actions. Habilitar em **Settings → Pages → Source: GitHub Actions** e reexecutar o workflow.
-- Testes de áudio e musicalidade, não aplicáveis ao Lote 01.
+- Teste visual manual em navegador real e nos breakpoints de referência.
+- GitHub Actions/Pages — aguardando o push deste lote para confirmar CI e deploy.
+- Testes de áudio e musicalidade, não aplicáveis ao Lote 02.
 
 ## PRÓXIMO LOTE
 
-02 — Interface premium, somente após confirmação do proprietário e conclusão da validação deste lote.
+03 — Gravador, somente após confirmação do proprietário e conclusão da validação deste lote.
 
 ## INSTRUÇÃO DE RETOMADA
 

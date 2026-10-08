@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 — 2026-10-08
+
+- Adicionados dashboard, sessão temporária de projeto e layout de estúdio responsivo.
+- Adicionados estados vazios, feedback de compatibilidade e navegação acessível.
+- Mantida a indisponibilidade explícita de áudio, harmonia, transporte e salvamento.
+
 ## 0.1.0 — 2026-10-08
 
 - Criada a fundação React, TypeScript e Vite.

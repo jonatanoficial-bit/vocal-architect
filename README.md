@@ -4,7 +4,7 @@ Aplicação web progressiva de harmonização vocal assistida por computador. O 
 
 ## Estado atual
 
-**Versão 0.1.0 — Lote 01: Fundação.** A base React, TypeScript, Vite, navegação estática, design tokens, testes e automações de qualidade/publicação foram implementados. Gravação, transcrição, harmonização, reprodução, persistência e exportação ainda **não** estão disponíveis.
+**Versão 0.2.0 — Lote 02: Interface premium.** O dashboard, a sessão temporária de projeto e o layout responsivo do estúdio estão implementados. Gravação, transcrição, harmonização, reprodução, persistência e exportação ainda **não** estão disponíveis.
 
 ## Desenvolvimento
 

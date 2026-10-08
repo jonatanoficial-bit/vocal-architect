@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lote 01
+# Escopo público de requisitos — Lotes 01 e 02
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -14,3 +14,11 @@ Este repositório público registra apenas os requisitos necessários para a fun
 ## Fora do escopo desta etapa
 
 Gravação, importação de áudio, transcrição, editor de notas, análise tonal, harmonização, arranjo SATB, reprodução, projetos locais, exportação e PWA instalada. Essas capacidades só serão incluídas quando implementadas e validadas nos lotes próprios.
+
+## Entregas do Lote 02
+
+- Dashboard e fluxo de criação de sessão temporária em memória.
+- Estúdio responsivo com painéis de faixas, área musical, harmonização e reprodução.
+- Componentes reutilizáveis para estado vazio e capacidade do navegador.
+- Estados reais de carregamento/compatibilidade e mensagens de indisponibilidade.
+- Navegação, foco inicial e adaptação para telas pequenas.

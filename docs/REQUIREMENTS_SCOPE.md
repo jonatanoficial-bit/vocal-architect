@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 a 06
+# Escopo público de requisitos — Lotes 01 a 07
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -75,3 +75,17 @@ Harmonização, arranjo SATB, transporte multipista, projetos locais, exportaç�
 - Arrastar/redimensionar notas diretamente no piano roll, reprodução MIDI, transporte e sincronização com áudio.
 - Correção automática, detecção de BPM/compasso, tonalidade definitiva, acordes, harmonia ou arranjo SATB.
 - Persistência, autosave, colaboração, importação/exportação e recuperação após recarregar a aba.
+
+## Entregas do Lote 07
+
+- Modelo local de acordes, incluindo tríades, sétimas e inversões no domínio musical.
+- Análise de frases baseada nos identificadores da transcrição e em pausas sustentadas.
+- Contexto tonal assistido, candidatos diatônicos, função harmônica, progressão pontuada e indicação de conflitos verticais.
+- Análise acionada somente depois da confirmação explícita da melodia; o motor apenas lê a cópia revisada e preserva notas bloqueadas.
+- Área de trabalho por etapa — Áudio, Melodia e Harmonia — com controles de toque proporcionais e piano roll com rolagem interna para telas pequenas.
+
+## Fora do escopo do Lote 07
+
+- Separação de fontes, reconhecimento de acordes, instrumentos ou múltiplas vozes em um áudio polifônico.
+- Geração de partes SATB, condução de vozes, playback MIDI, inversões selecionáveis na interface, persistência ou exportação.
+- Garantia de que a tonalidade candidata ou a progressão proposta substitua avaliação musical humana.

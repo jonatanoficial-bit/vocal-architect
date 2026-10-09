@@ -11,11 +11,11 @@ O editor recebe uma cópia dos `NoteEvent` produzidos pela transcrição e exist
 - Desfazer/refazer até 60 operações locais.
 - Consultar uma tonalidade candidata por distribuição de durações nas escalas maior/menor e confirmar a melodia explicitamente.
 
-As operações editadas recebem origem `edited`; a grafia é recalculada a partir do MIDI e todos os tempos continuam em ticks. A confirmação não produz harmonia nem salva um projeto: ela apenas registra que a cópia atual foi revisada nesta aba.
+As operações editadas recebem origem `edited`; a grafia é recalculada a partir do MIDI e todos os tempos continuam em ticks. A confirmação libera, nesta mesma aba, a análise harmônica do Lote 07. Ela não salva um projeto, não altera o áudio e é invalidada por qualquer nova edição ou nova transcrição.
 
 ## Limites
 
 - O piano roll básico é operado por seleção e painel de propriedades; ele não reproduz MIDI nem move notas por arrasto nesta etapa.
-- Não há quantização de áudio, estimativa de BPM, detecção tonal definitiva, acordes, correção automática ou persistência.
+- Não há quantização de áudio, estimativa de BPM, detecção tonal definitiva, correção automática ou persistência. A análise harmônica disponível após a confirmação é uma proposta de acordes por frase, não geração de vozes SATB.
 - A tonalidade exibida é uma pista local. Escalas relativas e melodias cromáticas podem produzir candidatas ambíguas.
 - Recarregar a página, trocar o áudio ou executar nova transcrição substitui a cópia editável; a persistência será tratada no Lote 13.

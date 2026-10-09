@@ -2,3 +2,9 @@
 
 @media (max-width: 980px) { .melody-editor-details { grid-template-columns: 1fr; } }
 @media (max-width: 680px) { .melody-editor-heading, .melody-confirmation { align-items: stretch; flex-direction: column; }.melody-status, .melody-confirmation .button { align-self: flex-start; }.note-inspector form { grid-template-columns: 1fr 1fr; }.note-inspector form .button { grid-column: 1 / -1; justify-self: start; }.piano-roll-viewport { grid-template-columns: 3.8rem minmax(0, 1fr); }.piano-roll-labels { grid-template-columns: 3.8rem 1fr; }.piano-keyboard { min-width: 3.8rem; } }
+
+/* Mantém o piano roll em uma janela própria: a página não cresce com cada altura exibida. */
+.piano-roll-viewport { --piano-row-size: 2rem; max-height: min(34rem, 58vh); }
+.piano-roll-grid { background-size: 2rem var(--piano-row-size); }
+
+@media (max-width: 680px) { .piano-roll-viewport { --piano-row-size: 1.75rem; max-height: min(56svh, 28rem); }.melody-toolbar .button, .piano-roll-controls .button, .note-actions .button { min-height: 2.5rem; padding: .45rem .65rem; } }

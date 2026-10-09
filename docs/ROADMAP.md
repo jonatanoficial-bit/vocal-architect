@@ -8,6 +8,7 @@
 | 04 | Importação e processamento | Concluído e publicado; validação manual de arquivos de referência permanece pendente |
 | 05 | Reconhecimento de notas | Implementado localmente; validação manual com gravações monofônicas de referência permanece pendente |
 | 06 | Editor de melodia | Implementado em memória; validação manual por toque/mouse e gravações reais permanece pendente |
-| 07–08 | Teoria, harmonia e arranjo SATB | Não iniciado |
+| 07 | Teoria e harmonia | Implementado localmente; validação musical e mobile com repertório de referência permanece pendente |
+| 08 | Arranjo SATB | Não iniciado |
 | 09–14 | Reprodução, ensaio, edição, notação, projetos e exportação | Não iniciado |
 | 15–16 | PWA, otimização, auditoria e lançamento | Não iniciado |

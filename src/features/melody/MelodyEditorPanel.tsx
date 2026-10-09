@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties, type FormEvent } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties, type FormEvent } from 'react'
 
 import { defaultQuantizationTicks } from '../../music/editor'
 import { midiToSpelling } from '../../music/pitch'
@@ -6,6 +6,7 @@ import { PPQ, type NoteEvent } from '../../music/types'
 import { useMelodyEditor } from './useMelodyEditor'
 
 type Props = {
+  onConfirmationChange?: (melody: { notes: NoteEvent[]; sourceId: string } | null) => void
   sourceId: string | null
   sourceNotes: NoteEvent[]
 }
@@ -25,12 +26,12 @@ function PianoRoll({ notes, selectedNoteId, onSelect, horizontalZoom, verticalZo
   const ticksPerColumn = PPQ / (2 * horizontalZoom)
   const greatestEnd = Math.max(ticksPerColumn * 8, ...notes.map((note) => note.startTick + note.durationTicks))
   const columns = Math.min(128, Math.max(16, Math.ceil(greatestEnd / ticksPerColumn) + 1))
-  const sharedStyle: CSSProperties = { gridTemplateColumns: `repeat(${columns}, minmax(2rem, 1fr))`, gridTemplateRows: `repeat(${rows.length}, 2rem)` }
+  const sharedStyle: CSSProperties = { gridTemplateColumns: `repeat(${columns}, minmax(2rem, 1fr))`, gridTemplateRows: `repeat(${rows.length}, var(--piano-row-size, 2rem))` }
 
   return <div className="piano-roll-shell">
     <div className="piano-roll-labels" aria-hidden="true"><span>Altura</span><span>Tempo em ticks · {ticksPerColumn} por célula</span></div>
     <div className="piano-roll-viewport">
-      <div className="piano-keyboard" style={{ gridTemplateRows: `repeat(${rows.length}, 2rem)` }} aria-hidden="true">{rows.map((midi) => <span className={midi % 12 === 1 || midi % 12 === 3 || midi % 12 === 6 || midi % 12 === 8 || midi % 12 === 10 ? 'black-key' : ''} key={midi}>{midiToSpelling(midi)}</span>)}</div>
+      <div className="piano-keyboard" style={{ gridTemplateRows: `repeat(${rows.length}, var(--piano-row-size, 2rem))` }} aria-hidden="true">{rows.map((midi) => <span className={midi % 12 === 1 || midi % 12 === 3 || midi % 12 === 6 || midi % 12 === 8 || midi % 12 === 10 ? 'black-key' : ''} key={midi}>{midiToSpelling(midi)}</span>)}</div>
       <div className="piano-roll-grid" style={sharedStyle} role="list" aria-label="Piano roll da melodia">
         {notes.map((note) => {
           const row = maximum - note.pitchMidi + 1
@@ -71,12 +72,16 @@ function Inspector({ note, onDelete, onDuplicate, onMerge, onSplit, onToggleLock
   </section>
 }
 
-export function MelodyEditorPanel({ sourceId, sourceNotes }: Props) {
+export function MelodyEditorPanel({ onConfirmationChange, sourceId, sourceNotes }: Props) {
   const editor = useMelodyEditor(sourceId, sourceNotes)
   const [horizontalZoom, setHorizontalZoom] = useState(1)
   const [quantizationTicks, setQuantizationTicks] = useState(defaultQuantizationTicks)
   const [verticalZoom, setVerticalZoom] = useState(1)
   const selectedIndex = editor.selectedNote ? editor.notes.findIndex((note) => note.id === editor.selectedNote?.id) : -1
+
+  useEffect(() => {
+    onConfirmationChange?.(editor.confirmed && sourceId ? { notes: editor.notes.map((note) => ({ ...note })), sourceId } : null)
+  }, [editor.confirmed, editor.notes, onConfirmationChange, sourceId])
 
   const add = () => {
     const selected = editor.selectedNote

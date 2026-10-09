@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0 — 2026-10-09
+
+- Adicionado motor local de contexto tonal, frases, acordes, funções, progressões, candidatos, pontuação e conflitos verticais.
+- A análise é habilitada somente após a confirmação da melodia e preserva a cópia de `NoteEvent`, incluindo bloqueios, sem alterar o áudio.
+- Reorganizado o estúdio em etapas funcionais de Áudio, Melodia e Harmonia; no celular, isso remove os cartões de áudio de cima do piano roll.
+- O piano roll passou a usar uma janela com rolagem interna e os controles móveis ganharam áreas de toque maiores.
+- Documentados os limites: não há transcrição polifônica, reconhecimento de acordes no áudio nem geração SATB nesta versão.
+
 ## 0.6.0 — 2026-10-08
 
 - Adicionado editor de melodia em memória com piano roll, seleção, zoom visual e painel de propriedades baseado em ticks/MIDI.

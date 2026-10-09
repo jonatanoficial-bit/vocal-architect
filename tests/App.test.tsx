@@ -12,11 +12,10 @@ describe('Vocal Architect foundation', () => {
     window.location.hash = ''
   })
 
-  it('renders the project dashboard with the available monophonic melody correction scope', () => {
+  it('renders the project dashboard with the available harmony analysis scope', () => {
     render(<App />)
     expect(screen.getByRole('heading', { name: /o seu estúdio para projetar vozes/i })).toBeInTheDocument()
-    expect(screen.getByText(/correção manual de uma melodia monofônica funcionam/i)).toBeInTheDocument()
-    expect(screen.getByText(/harmonização continua em lote próprio/i)).toBeInTheDocument()
+    expect(screen.getByText(/análise harmônica dessa melodia confirmada funcionam/i)).toBeInTheDocument()
   })
 
   it('navigates to the architecture page through the hash router', () => {
@@ -37,7 +36,11 @@ describe('Vocal Architect foundation', () => {
     expect(screen.getByLabelText(/escolher arquivo de áudio/i)).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /transcrição monofônica/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /reconhecer notas/i })).toBeDisabled()
+    expect(screen.getByRole('button', { name: /áudio/i })).toHaveAttribute('aria-pressed', 'true')
+    fireEvent.click(screen.getByRole('button', { name: /melodia/i }))
     expect(screen.getByRole('heading', { name: /editor de melodia/i })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /harmonia/i }))
+    expect(screen.getByRole('heading', { name: /harmonia começa com uma melodia confirmada/i })).toBeInTheDocument()
   })
 
   it('does not request the microphone until the user starts a recording', async () => {

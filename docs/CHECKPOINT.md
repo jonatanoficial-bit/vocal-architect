@@ -1,11 +1,11 @@
 # Checkpoint de continuidade
 
 PROJETO: VOCAL ARCHITECT  
-VERSÃO: 0.9.0
-LOTE: 09 — Reprodução SATB
+VERSÃO: 0.10.0
+LOTE: 10 — Mixer e ensaio vocal
 DATA: 2026-10-09
 BRANCH: main  
-COMMIT FUNCIONAL: 326e8b6 — feat(playback): add local SATB transport.
+COMMIT FUNCIONAL: pendente — mixer e ensaio vocal em validação final.
 
 ## IMPLEMENTADO
 
@@ -30,6 +30,9 @@ COMMIT FUNCIONAL: 326e8b6 — feat(playback): add local SATB transport.
 - Piano sintetizado localmente por Web Audio para alternativas SATB selecionadas, sem upload ou síntese de voz humana.
 - Transporte baseado em ticks com play, pause, stop, reinício, seek, BPM, loop integral e seleção de audição por naipe.
 - Agendamento das notas no relógio de áudio, reação de notas sustentadas após seek/pausa e interrupção segura de osciladores em stop, seek, reinício e desmontagem.
+- Mixer local SATB ligado ao mesmo grafo Web Audio do piano, com mute, solos múltiplos, volume por naipe e pan estéreo quando a API do navegador está disponível.
+- Presets de conjunto, somente meu naipe e meu naipe em destaque, aplicados diretamente ao mixer; ensaio lento reversível que restaura o andamento anterior.
+- Loop regional com limites em ticks, corte das notas no fim do trecho e reinício no ponto escolhido; os controles de ensaio agora aparecem antes dos cartões de notas no resultado SATB.
 
 ## TESTADO
 
@@ -51,6 +54,8 @@ COMMIT FUNCIONAL: 326e8b6 — feat(playback): add local SATB transport.
 - `pnpm run lint` — concluído sem avisos no Lote 09.
 - `pnpm run test` — 8 arquivos e 31 testes aprovados no Lote 09.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 69 módulos.
+- `pnpm run quality` — concluído sem erros no Lote 10: typecheck, lint, 9 arquivos/36 testes e build com 70 módulos.
+- `GITHUB_ACTIONS=true pnpm run build` — concluído no Lote 10; bundle gerado com a base `/vocal-architect/` e 70 módulos.
 - Workflow remoto **Quality checks** — aprovado no commit `326e8b6` ([execução 37954294621](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37954294621)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `326e8b6` ([execução 37954294684](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37954294684)).
 - Workflow remoto **Quality checks** — aprovado no commit `cbd788a` ([execução 37951943680](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943680)).
@@ -71,7 +76,7 @@ COMMIT FUNCIONAL: 326e8b6 — feat(playback): add local SATB transport.
 - Uso do piano roll por mouse e toque em navegador real, incluindo zoom, seleção e o painel de propriedades em telas pequenas.
 - Avaliação musical com repertório anotado para tonalidade, frases, candidatas, conflitos e progressões sugeridas.
 - Avaliação com coros e repertório de referência para condução, tessitura, independência das linhas e qualidade perceptiva das alternativas SATB.
-- Reprodução audível em navegadores e dispositivos móveis reais, incluindo autorização de áudio, pause, seek, loop, isolamento de naipe e interrupções rápidas.
+- Reprodução audível em navegadores e dispositivos móveis reais, incluindo autorização de áudio, pause, seek, loop regional, solo/mute, volume, pan, presets, ensaio lento e interrupções rápidas. A tentativa de abrir o navegador por automação local expirou duas vezes antes de expor uma janela.
 
 ## LIMITES ATUAIS
 
@@ -82,12 +87,12 @@ COMMIT FUNCIONAL: 326e8b6 — feat(playback): add local SATB transport.
 - A tonalidade e a harmonia são candidatas locais por duração e função; não substituem análise tonal, métrica, estilo ou validação humana.
 - O arranjo SATB é efêmero e restrito às tríades da análise atual; não há tratamento de sétimas, notas de passagem, edição de partes, estilo avançado ou exportação.
 - A tessitura da melodia selecionada é obrigatória. Em vez de transpor ou alterar a linha, o motor informa quando ela não cabe no naipe escolhido ou quando a disposição é impossível.
-- A reprodução depende de Web Audio e usa apenas um piano sintetizado. Não há áudio original sincronizado, instrumento amostrado, metronômo, contagem, mixer completo, pan, volume por trilha ou loop regional.
+- A reprodução depende de Web Audio e usa apenas um piano sintetizado. Não há áudio original sincronizado, instrumento amostrado, acompanhamento externo, metrônomo, contagem, efeitos, automação de mix, voz humana ou exportação.
 
 ## PRÓXIMO LOTE
 
-10 — Mixer e modo ensaio, somente após confirmação do proprietário e validação manual da reprodução SATB do Lote 09.
+11 — Edição de arranjo, somente após confirmação do proprietário e validação manual de reprodução/mixer SATB em navegador ou dispositivo real.
 
 ## INSTRUÇÃO DE RETOMADA
 
-Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/PLAYBACK_ENGINE.md`, `src/audio/playback/timing.ts`, `src/features/playback/useSatbPlayback.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.
+Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/PLAYBACK_ENGINE.md`, `src/audio/playback/timing.ts`, `src/audio/playback/mixer.ts`, `src/features/playback/useSatbPlayback.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.

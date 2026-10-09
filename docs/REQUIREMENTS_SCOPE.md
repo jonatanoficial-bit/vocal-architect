@@ -116,3 +116,17 @@ Harmonização, arranjo SATB, transporte multipista, projetos locais, exportaç�
 
 - Síntese de voz humana, amostras licenciadas, metronômo, contagem inicial, sincronização/time-stretch do áudio original ou reprodução sem Web Audio.
 - Mixer completo, volume/pan por trilha, múltiplos solos, loop regional, edição de notas, persistência e exportação.
+
+## Entregas do Lote 10
+
+- Mixer local por naipe SATB com mute, solo, volume, pan estéreo quando disponível no navegador e sinalização clara quando pan não for suportado.
+- Presets funcionais de estudo para conjunto, somente o naipe escolhido e naipe escolhido em destaque; os controles atuam nos mesmos dados e nós de áudio do arranjo atual.
+- Escolha explícita de “meu naipe”, andamento lento reversível e retorno ao andamento anterior.
+- Seleção de início e fim do trecho, com agendamento e corte real das notas no limite selecionado quando o loop está ativo.
+- Controles de ensaio apresentados antes da lista de notas SATB e organizados para toque em telas pequenas.
+- Testes para prioridade de solo sobre mute, presets, limites de volume/pan e eventos/posição no loop regional.
+
+## Fora do escopo do Lote 10
+
+- Acompanhamento instrumental externo, metrônomo, contagem inicial, voz humana, gravação de ensaio ou avaliação da afinação do cantor.
+- Automação de mix, efeitos, roteamento para arquivos, persistência das escolhas, edição de notas, partitura e exportação.

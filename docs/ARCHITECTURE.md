@@ -18,6 +18,8 @@ No Lote 08, `src/music/satb.ts` executa uma busca em feixe de disposições SATB
 
 No Lote 09, `src/audio/playback/timing.ts` transforma ticks em segundos e produz eventos para seek, BPM e loop sem alterar os dados MIDI. `src/features/playback/useSatbPlayback.ts` cria um `AudioContext` apenas após a ação explícita do músico, agenda os osciladores no relógio de áudio e corta fontes pendentes em pausa, stop, reinício, seek e desmontagem. `SatbPlaybackPanel` só é renderizado com uma alternativa válida e oferece piano sintetizado, transporte, andamento, loop integral e seleção de naipe. O áudio de entrada não é tocado junto nem sofre time-stretch.
 
+No Lote 10, `src/audio/playback/mixer.ts` mantém o estado puro de ganho, mute, solo, pan e presets por naipe. O mesmo `useSatbPlayback` converte esse estado em nós de ganho e panner do grafo Web Audio; não há uma segunda representação das vozes. `timing.ts` também normaliza uma região em ticks e recorta os eventos no seu final para o loop regional. `SatbPlaybackPanel` concentra transporte, presets, seleção do naipe, trecho de ensaio e mixer em controles de toque, antes da lista de notas da alternativa SATB.
+
 Ao encerrar, cancelar, falhar ou desmontar o componente, as faixas do microfone são interrompidas, o contexto de análise é fechado e a URL temporária é revogada quando não é mais necessária. O áudio analisado permanece em memória enquanto a sessão estiver aberta; persistência e processamento posterior pertencem a lotes futuros.
 
 Camadas previstas: interface, aplicação, domínio musical, áudio, persistência e interoperabilidade. A sessão de projeto vive apenas na memória React; ela não simula autosave, banco local ou projetos recentes. Persistência continua reservada ao Lote 13.

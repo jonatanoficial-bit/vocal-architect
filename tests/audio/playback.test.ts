@@ -1,4 +1,4 @@
-import { arrangementEndTick, playbackEventsFrom, playbackPositionTick, secondsToTicks, ticksToSeconds } from '../../src/audio/playback/timing'
+import { arrangementEndTick, normalizePlaybackRange, playbackEventsFrom, playbackPositionInRange, playbackPositionTick, secondsToTicks, ticksToSeconds } from '../../src/audio/playback/timing'
 import type { VocalPart } from '../../src/music/types'
 import { describe, expect, it } from 'vitest'
 
@@ -29,5 +29,15 @@ describe('playback timing', () => {
     expect(arrangementEndTick(parts())).toBe(1440)
     expect(playbackPositionTick(960, 10, 10.5, 120, 1440, false)).toBe(1440)
     expect(playbackPositionTick(960, 10, 10.5, 120, 1440, true)).toBe(480)
+  })
+
+  it('limits sustained notes and the transport position to a selected loop region', () => {
+    const range = normalizePlaybackRange(480, 1200, 1440)
+    const events = playbackEventsFrom(parts(), range.startTick, 120, range.endTick)
+
+    expect(range).toEqual({ startTick: 480, endTick: 1200 })
+    expect(events.find((event) => event.note.id === 'b1')).toMatchObject({ durationSeconds: 0.375, startOffsetSeconds: 0 })
+    expect(playbackPositionInRange(range, 960, 10, 10.25, 120, true)).toBe(720)
+    expect(playbackPositionInRange(range, 960, 10, 11, 120, false)).toBe(1200)
   })
 })

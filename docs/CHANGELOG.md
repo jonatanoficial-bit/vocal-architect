@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.0 — 2026-10-09
+
+- Adicionado mixer SATB local com solo, mute, volume e pan estéreo quando suportado pelo navegador.
+- Adicionados presets de conjunto, somente meu naipe e meu naipe em destaque, além de ensaio lento reversível.
+- Adicionado loop regional com início/fim em ticks, corte seguro de notas sustentadas e reinício no trecho selecionado.
+- Reorganizados os controles de ensaio antes dos cartões de notas para reduzir a rolagem no celular.
+- Acompanhamento instrumental externo, metrônomo, voz humana, persistência, efeitos e exportação continuam indisponíveis.
+
 ## 0.9.0 — 2026-10-09
 
 - Adicionado piano sintetizado localmente por Web Audio para alternativas SATB já geradas.

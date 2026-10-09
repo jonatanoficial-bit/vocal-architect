@@ -5,7 +5,7 @@ VERSÃO: 0.8.0
 LOTE: 08 — Arranjo SATB
 DATA: 2026-10-09
 BRANCH: main  
-COMMIT FUNCIONAL: pendente — arranjo SATB local em validação final.
+COMMIT FUNCIONAL: cbd788a — feat(satb): add constrained vocal arrangements.
 
 ## IMPLEMENTADO
 
@@ -44,6 +44,8 @@ COMMIT FUNCIONAL: pendente — arranjo SATB local em validação final.
 - `pnpm run lint` — concluído sem avisos no Lote 08.
 - `pnpm run test` — 7 arquivos e 28 testes aprovados no Lote 08.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 65 módulos.
+- Workflow remoto **Quality checks** — aprovado no commit `cbd788a` ([execução 37951943680](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943680)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `cbd788a` ([execução 37951943704](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943704)).
 - Workflow remoto **Quality checks** — aprovado no commit `fee4d6f` ([execução 37948222281](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37948222281)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `fee4d6f` ([execução 37948222357](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37948222357)).
 - Workflow remoto **Quality checks** — aprovado no commit `e1a052b` ([execução 37833504960](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37833504960)).

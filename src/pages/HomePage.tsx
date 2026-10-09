@@ -28,7 +28,7 @@ export function HomePage() {
         </div>
         <aside className="hero-panel">
           <h2>Leve uma ideia até a análise inicial</h2>
-          <p>A sessão, o estúdio, a gravação, a análise local, a correção de uma melodia monofônica e a análise harmônica dessa melodia confirmada funcionam nesta versão.</p>
+          <p>A sessão, o estúdio, a gravação, a análise local, a correção de uma melodia monofônica e alternativas de arranjo SATB dessa melodia confirmada funcionam nesta versão.</p>
           <div className="signal" aria-hidden="true">{Array.from({ length: 18 }, (_, index) => <span key={index} />)}</div>
         </aside>
       </section>

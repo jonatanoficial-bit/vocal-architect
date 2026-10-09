@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0 — 2026-10-09
+
+- Adicionado motor local de composição SATB com busca conjunta das quatro vozes, tessituras, condução e até três alternativas.
+- A melodia pode permanecer em soprano, contralto, tenor ou baixo; sua altura, tempo, duração e bloqueios são preservados.
+- Adicionadas validações para tessitura, cruzamento, espaçamento, quintas e oitavas paralelas, além de aviso de cadência não conclusiva.
+- Adicionados controles funcionais de tessitura e uma apresentação móvel das partes, identificadas por nome e cor.
+- Reprodução, edição das vozes, estilos avançados, exportação e transcrição polifônica continuam indisponíveis.
+
 ## 0.7.0 — 2026-10-09
 
 - Adicionado motor local de contexto tonal, frases, acordes, funções, progressões, candidatos, pontuação e conflitos verticais.

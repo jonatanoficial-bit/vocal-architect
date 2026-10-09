@@ -15,7 +15,7 @@ describe('Vocal Architect foundation', () => {
   it('renders the project dashboard with the available harmony analysis scope', () => {
     render(<App />)
     expect(screen.getByRole('heading', { name: /o seu estúdio para projetar vozes/i })).toBeInTheDocument()
-    expect(screen.getByText(/análise harmônica dessa melodia confirmada funcionam/i)).toBeInTheDocument()
+    expect(screen.getByText(/alternativas de arranjo SATB dessa melodia confirmada funcionam/i)).toBeInTheDocument()
   })
 
   it('navigates to the architecture page through the hash router', () => {

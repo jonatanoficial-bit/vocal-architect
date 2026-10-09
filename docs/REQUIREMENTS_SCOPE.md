@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 a 07
+# Escopo público de requisitos — Lotes 01 a 08
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -89,3 +89,17 @@ Harmonização, arranjo SATB, transporte multipista, projetos locais, exportaç�
 - Separação de fontes, reconhecimento de acordes, instrumentos ou múltiplas vozes em um áudio polifônico.
 - Geração de partes SATB, condução de vozes, playback MIDI, inversões selecionáveis na interface, persistência ou exportação.
 - Garantia de que a tonalidade candidata ou a progressão proposta substitua avaliação musical humana.
+
+## Entregas do Lote 08
+
+- Gerador local de quatro partes SATB a partir da harmonia analisada e da melodia explicitamente confirmada.
+- Escolha funcional do naipe que preserva a melodia principal: soprano, contralto, tenor ou baixo.
+- Tessituras absolutas configuráveis, regiões confortáveis de referência, busca conjunta das vozes, condução econômica e alternativas distintas.
+- Rejeição de disposições com cruzamentos, violações de tessitura ou quintas e oitavas paralelas; aviso para espaçamentos amplos e cadência não conclusiva.
+- Testes para preservação de melodia e bloqueios, independência das linhas, tessitura impossível e melodia no tenor.
+
+## Fora do escopo do Lote 08
+
+- Transcrição polifônica de áudio, separação de fontes, reconhecimento de acordes no arquivo ou qualquer mudança automática da melodia principal.
+- Reprodução, edição por nota, isolamento sonoro dos naipes, persistência, exportação e estilos vocais avançados.
+- Garantia de arranjo profissional para todo repertório; material cromático, modal ou com restrições incompatíveis pode não ter uma disposição válida.

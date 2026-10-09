@@ -1,11 +1,11 @@
 # Checkpoint de continuidade
 
 PROJETO: VOCAL ARCHITECT  
-VERSÃO: 0.7.0
-LOTE: 07 — Motor harmônico
+VERSÃO: 0.8.0
+LOTE: 08 — Arranjo SATB
 DATA: 2026-10-09
 BRANCH: main  
-COMMIT FUNCIONAL: 64c62ea — feat(melody): add local melody editor.
+COMMIT FUNCIONAL: pendente — arranjo SATB local em validação final.
 
 ## IMPLEMENTADO
 
@@ -24,6 +24,9 @@ COMMIT FUNCIONAL: 64c62ea — feat(melody): add local melody editor.
 - Progressão por frase com contexto tonal assistido, função harmônica, candidatos alternativos e conflitos de nota fora do acorde/escala.
 - Análise liberada apenas por confirmação explícita da melodia; ela não altera a cópia musical, inclusive as notas bloqueadas.
 - Estúdio reorganizado em espaços de trabalho alternáveis de Áudio, Melodia e Harmonia. O piano roll agora tem rolagem interna e controles maiores em telas pequenas.
+- Gerador SATB local com busca conjunta das quatro vozes por frase, preservação literal da melodia no naipe escolhido e até três alternativas distintas.
+- Tessituras iniciais para soprano, contralto, tenor e baixo, limites absolutos configuráveis e preferência por região confortável durante a busca.
+- Validação de tessitura, cruzamento, espaçamento, paralelismos perfeitos e cadência; a geração é recusada quando as restrições não admitem uma disposição válida.
 
 ## TESTADO
 
@@ -37,6 +40,10 @@ COMMIT FUNCIONAL: 64c62ea — feat(melody): add local melody editor.
 - `pnpm run test` — 6 arquivos e 24 testes aprovados no Lote 07.
 - `pnpm run quality` — concluído; typecheck, lint, testes e build executados no Lote 07.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 62 módulos.
+- `pnpm run typecheck` — concluído sem erros no Lote 08.
+- `pnpm run lint` — concluído sem avisos no Lote 08.
+- `pnpm run test` — 7 arquivos e 28 testes aprovados no Lote 08.
+- `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 65 módulos.
 - Workflow remoto **Quality checks** — aprovado no commit `fee4d6f` ([execução 37948222281](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37948222281)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `fee4d6f` ([execução 37948222357](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37948222357)).
 - Workflow remoto **Quality checks** — aprovado no commit `e1a052b` ([execução 37833504960](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37833504960)).
@@ -52,6 +59,7 @@ COMMIT FUNCIONAL: 64c62ea — feat(melody): add local melody editor.
 - Comparação da transcrição com corpus vocal anotado, inclusive ruído, respiração, portamento, vibrato intenso, notas curtas, erros de oitava, acordes e vozes sobrepostas.
 - Uso do piano roll por mouse e toque em navegador real, incluindo zoom, seleção e o painel de propriedades em telas pequenas.
 - Avaliação musical com repertório anotado para tonalidade, frases, candidatas, conflitos e progressões sugeridas.
+- Avaliação com coros e repertório de referência para condução, tessitura, independência das linhas e qualidade perceptiva das alternativas SATB.
 
 ## LIMITES ATUAIS
 
@@ -60,12 +68,13 @@ COMMIT FUNCIONAL: 64c62ea — feat(melody): add local melody editor.
 - Os resultados são leituras iniciais. O rótulo de revisão comunica incerteza, mas não substitui uma correção humana.
 - O editor é efêmero: não arrasta/redimensiona diretamente no piano roll, não reproduz MIDI, não persiste a revisão e perde a cópia editável ao recarregar ou trocar a transcrição.
 - A tonalidade e a harmonia são candidatas locais por duração e função; não substituem análise tonal, métrica, estilo ou validação humana.
-- O Lote 07 não gera vozes SATB, não faz condução de vozes e não seleciona inversões na interface. Essas capacidades pertencem ao Lote 08.
+- O arranjo SATB é efêmero e restrito às tríades da análise atual; não há tratamento de sétimas, notas de passagem, edição de partes, estilo avançado, reprodução ou exportação.
+- A tessitura da melodia selecionada é obrigatória. Em vez de transpor ou alterar a linha, o motor informa quando ela não cabe no naipe escolhido ou quando a disposição é impossível.
 
 ## PRÓXIMO LOTE
 
-08 — Arranjo vocal SATB, somente após confirmação do proprietário e avaliação musical das candidatas harmônicas do Lote 07.
+09 — Motor de reprodução, somente após confirmação do proprietário e avaliação musical das alternativas SATB do Lote 08.
 
 ## INSTRUÇÃO DE RETOMADA
 
-Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/HARMONY_ENGINE.md`, `src/music/harmony.ts`, `src/features/harmony/HarmonyPanel.tsx` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.
+Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/SATB_ENGINE.md`, `src/music/satb.ts`, `src/features/satb/SatbArrangementPanel.tsx` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.

@@ -1,11 +1,11 @@
 # Checkpoint de continuidade
 
 PROJETO: VOCAL ARCHITECT  
-VERSÃO: 0.8.0
-LOTE: 08 — Arranjo SATB
+VERSÃO: 0.9.0
+LOTE: 09 — Reprodução SATB
 DATA: 2026-10-09
 BRANCH: main  
-COMMIT FUNCIONAL: cbd788a — feat(satb): add constrained vocal arrangements.
+COMMIT FUNCIONAL: pendente — reprodução SATB local em validação final.
 
 ## IMPLEMENTADO
 
@@ -27,6 +27,9 @@ COMMIT FUNCIONAL: cbd788a — feat(satb): add constrained vocal arrangements.
 - Gerador SATB local com busca conjunta das quatro vozes por frase, preservação literal da melodia no naipe escolhido e até três alternativas distintas.
 - Tessituras iniciais para soprano, contralto, tenor e baixo, limites absolutos configuráveis e preferência por região confortável durante a busca.
 - Validação de tessitura, cruzamento, espaçamento, paralelismos perfeitos e cadência; a geração é recusada quando as restrições não admitem uma disposição válida.
+- Piano sintetizado localmente por Web Audio para alternativas SATB selecionadas, sem upload ou síntese de voz humana.
+- Transporte baseado em ticks com play, pause, stop, reinício, seek, BPM, loop integral e seleção de audição por naipe.
+- Agendamento das notas no relógio de áudio, reação de notas sustentadas após seek/pausa e interrupção segura de osciladores em stop, seek, reinício e desmontagem.
 
 ## TESTADO
 
@@ -44,6 +47,10 @@ COMMIT FUNCIONAL: cbd788a — feat(satb): add constrained vocal arrangements.
 - `pnpm run lint` — concluído sem avisos no Lote 08.
 - `pnpm run test` — 7 arquivos e 28 testes aprovados no Lote 08.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 65 módulos.
+- `pnpm run typecheck` — concluído sem erros no Lote 09.
+- `pnpm run lint` — concluído sem avisos no Lote 09.
+- `pnpm run test` — 8 arquivos e 31 testes aprovados no Lote 09.
+- `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 69 módulos.
 - Workflow remoto **Quality checks** — aprovado no commit `cbd788a` ([execução 37951943680](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943680)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `cbd788a` ([execução 37951943704](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943704)).
 - Workflow remoto **Quality checks** — aprovado no commit `fee4d6f` ([execução 37948222281](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37948222281)).
@@ -62,21 +69,23 @@ COMMIT FUNCIONAL: cbd788a — feat(satb): add constrained vocal arrangements.
 - Uso do piano roll por mouse e toque em navegador real, incluindo zoom, seleção e o painel de propriedades em telas pequenas.
 - Avaliação musical com repertório anotado para tonalidade, frases, candidatas, conflitos e progressões sugeridas.
 - Avaliação com coros e repertório de referência para condução, tessitura, independência das linhas e qualidade perceptiva das alternativas SATB.
+- Reprodução audível em navegadores e dispositivos móveis reais, incluindo autorização de áudio, pause, seek, loop, isolamento de naipe e interrupções rápidas.
 
 ## LIMITES ATUAIS
 
 - A transcrição é local, monofônica e limitada a 90 segundos por execução; não separa fontes, instrumentos, acordes ou vozes sobrepostas no áudio.
-- Não há métrica de precisão declarada, redução de ruído, correção automática de pitch, playback MIDI, persistência ou exportação.
+- Não há métrica de precisão declarada, redução de ruído, correção automática de pitch, persistência ou exportação.
 - Os resultados são leituras iniciais. O rótulo de revisão comunica incerteza, mas não substitui uma correção humana.
 - O editor é efêmero: não arrasta/redimensiona diretamente no piano roll, não reproduz MIDI, não persiste a revisão e perde a cópia editável ao recarregar ou trocar a transcrição.
 - A tonalidade e a harmonia são candidatas locais por duração e função; não substituem análise tonal, métrica, estilo ou validação humana.
-- O arranjo SATB é efêmero e restrito às tríades da análise atual; não há tratamento de sétimas, notas de passagem, edição de partes, estilo avançado, reprodução ou exportação.
+- O arranjo SATB é efêmero e restrito às tríades da análise atual; não há tratamento de sétimas, notas de passagem, edição de partes, estilo avançado ou exportação.
 - A tessitura da melodia selecionada é obrigatória. Em vez de transpor ou alterar a linha, o motor informa quando ela não cabe no naipe escolhido ou quando a disposição é impossível.
+- A reprodução depende de Web Audio e usa apenas um piano sintetizado. Não há áudio original sincronizado, instrumento amostrado, metronômo, contagem, mixer completo, pan, volume por trilha ou loop regional.
 
 ## PRÓXIMO LOTE
 
-09 — Motor de reprodução, somente após confirmação do proprietário e avaliação musical das alternativas SATB do Lote 08.
+10 — Mixer e modo ensaio, somente após confirmação do proprietário e validação manual da reprodução SATB do Lote 09.
 
 ## INSTRUÇÃO DE RETOMADA
 
-Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/SATB_ENGINE.md`, `src/music/satb.ts`, `src/features/satb/SatbArrangementPanel.tsx` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.
+Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/PLAYBACK_ENGINE.md`, `src/audio/playback/timing.ts`, `src/features/playback/useSatbPlayback.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.

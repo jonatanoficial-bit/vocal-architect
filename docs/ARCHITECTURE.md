@@ -1,4 +1,4 @@
-# Arquitetura — Lotes 01–08
+# Arquitetura — Lotes 01–09
 
 O aplicativo é um SPA estático em React + TypeScript + Vite. A navegação usa hash (`#/arquitetura`, `#/roadmap`), mantendo recarregamento e links internos compatíveis com GitHub Pages sem servidor de fallback.
 
@@ -15,6 +15,8 @@ No Lote 06, `src/music/editor.ts` aplica operações imutáveis sobre `NoteEvent
 No Lote 07, `src/music/harmony.ts` calcula frases, contexto tonal, modelos de acordes, candidatos, pontuação e conflitos a partir de `NoteEvent`, sem depender de React ou de coordenadas da tela. `src/features/harmony` apresenta somente uma análise solicitada pelo usuário após a confirmação da melodia. `StudioPage` organiza Áudio, Melodia e Harmonia como espaços de trabalho alternáveis, mantendo cada componente montado para não perder o estado efêmero ao trocar de etapa. O motor não cria partes vocais e não interpreta áudio polifônico.
 
 No Lote 08, `src/music/satb.ts` executa uma busca em feixe de disposições SATB por frase. Cada estado contém baixo, tenor, contralto e soprano em conjunto; candidatos que cruzam vozes, ultrapassam tessituras ou introduzem quintas e oitavas paralelas são descartados. A melodia é copiada sem alteração para o naipe escolhido e o domínio devolve até três `VocalPart` alternativos junto de diagnósticos. `src/features/satb` apresenta o acionamento explícito, a escolha do naipe, os limites de tessitura e as alternativas; não contém síntese, playback ou exportação.
+
+No Lote 09, `src/audio/playback/timing.ts` transforma ticks em segundos e produz eventos para seek, BPM e loop sem alterar os dados MIDI. `src/features/playback/useSatbPlayback.ts` cria um `AudioContext` apenas após a ação explícita do músico, agenda os osciladores no relógio de áudio e corta fontes pendentes em pausa, stop, reinício, seek e desmontagem. `SatbPlaybackPanel` só é renderizado com uma alternativa válida e oferece piano sintetizado, transporte, andamento, loop integral e seleção de naipe. O áudio de entrada não é tocado junto nem sofre time-stretch.
 
 Ao encerrar, cancelar, falhar ou desmontar o componente, as faixas do microfone são interrompidas, o contexto de análise é fechado e a URL temporária é revogada quando não é mais necessária. O áudio analisado permanece em memória enquanto a sessão estiver aberta; persistência e processamento posterior pertencem a lotes futuros.
 

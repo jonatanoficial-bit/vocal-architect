@@ -3,6 +3,7 @@ import { useState } from 'react'
 import type { HarmonyAnalysis } from '../../music/harmony'
 import { defaultVoiceRanges, generateSatbArrangements, type SatbGenerationResult, type VoiceName, type VoiceRange } from '../../music/satb'
 import type { NoteEvent, VocalPart } from '../../music/types'
+import { SatbPlaybackPanel } from '../playback/SatbPlaybackPanel'
 
 type Props = {
   analysis: HarmonyAnalysis
@@ -34,7 +35,7 @@ function noteList(part: VocalPart) {
 
 function ArrangementView({ arrangement }: { arrangement: NonNullable<SatbGenerationResult['alternatives'][number]> }) {
   const warnings = arrangement.diagnostics.filter((diagnostic) => diagnostic.severity === 'warning')
-  return <div className="satb-result" aria-live="polite"><div className="satb-parts" aria-label="Partes do arranjo SATB">{arrangement.parts.map((part) => <article className={`satb-part ${part.id}`} key={part.id}><div><p className="eyebrow">{part.role}</p><h4>{part.name}</h4></div><strong>{part.notes.length} nota{part.notes.length === 1 ? '' : 's'}</strong><span>{noteList(part)}</span><small>Faixa {part.rangeMinimumMidi}–{part.rangeMaximumMidi} MIDI</small></article>)}</div>{warnings.length > 0 ? <ul className="satb-warnings">{warnings.map((warning) => <li key={warning.message}>{warning.message}</li>)}</ul> : <p className="satb-valid">Validação estrutural concluída: sem cruzamentos, paralelismos perfeitos ou violações de tessitura.</p>}<p className="satb-limit">As vozes foram geradas localmente para estudo e revisão. Reprodução, edição por nota e exportação serão adicionadas em lotes posteriores.</p></div>
+  return <div className="satb-result" aria-live="polite"><div className="satb-parts" aria-label="Partes do arranjo SATB">{arrangement.parts.map((part) => <article className={`satb-part ${part.id}`} key={part.id}><div><p className="eyebrow">{part.role}</p><h4>{part.name}</h4></div><strong>{part.notes.length} nota{part.notes.length === 1 ? '' : 's'}</strong><span>{noteList(part)}</span><small>Faixa {part.rangeMinimumMidi}–{part.rangeMaximumMidi} MIDI</small></article>)}</div>{warnings.length > 0 ? <ul className="satb-warnings">{warnings.map((warning) => <li key={warning.message}>{warning.message}</li>)}</ul> : <p className="satb-valid">Validação estrutural concluída: sem cruzamentos, paralelismos perfeitos ou violações de tessitura.</p>}<SatbPlaybackPanel parts={arrangement.parts} /></div>
 }
 
 export function SatbArrangementPanel({ analysis, melody, sourceId }: Props) {

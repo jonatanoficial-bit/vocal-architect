@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 a 08
+# Escopo público de requisitos — Lotes 01 a 09
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -103,3 +103,16 @@ Harmonização, arranjo SATB, transporte multipista, projetos locais, exportaç�
 - Transcrição polifônica de áudio, separação de fontes, reconhecimento de acordes no arquivo ou qualquer mudança automática da melodia principal.
 - Reprodução, edição por nota, isolamento sonoro dos naipes, persistência, exportação e estilos vocais avançados.
 - Garantia de arranjo profissional para todo repertório; material cromático, modal ou com restrições incompatíveis pode não ter uma disposição válida.
+
+## Entregas do Lote 09
+
+- Piano sintetizado localmente por Web Audio para as notas de um arranjo SATB já gerado.
+- Transporte funcional de reproduzir, pausar, parar, reiniciar e buscar posição baseado em ticks, com corte seguro das notas ao interromper.
+- Andamento em BPM, loop do arranjo inteiro e sincronização das partes no relógio de áudio do navegador.
+- Audição de todos os naipes ou de um único naipe, com indicação visual dos naipes ativos.
+- Testes de conversão tick/tempo, duração, seek de notas sustentadas, encerramento e loop.
+
+## Fora do escopo do Lote 09
+
+- Síntese de voz humana, amostras licenciadas, metronômo, contagem inicial, sincronização/time-stretch do áudio original ou reprodução sem Web Audio.
+- Mixer completo, volume/pan por trilha, múltiplos solos, loop regional, edição de notas, persistência e exportação.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0 — 2026-10-09
+
+- Adicionado piano sintetizado localmente por Web Audio para alternativas SATB já geradas.
+- Adicionado transporte por ticks com reproduzir, pausar, parar, reiniciar, seek, BPM e loop integral, com interrupção segura das notas.
+- Adicionada audição conjunta ou isolada por naipe e indicador de atividade durante a reprodução.
+- Adicionados testes de tempo, duração, seek de notas sustentadas, encerramento e loop.
+- Áudio original, mixer avançado, metrônomo, contagem, pan, volume por trilha e exportação continuam fora do escopo.
+
 ## 0.8.0 — 2026-10-09
 
 - Adicionado motor local de composição SATB com busca conjunta das quatro vozes, tessituras, condução e até três alternativas.

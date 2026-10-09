@@ -14,4 +14,4 @@ O motor SATB trabalha somente depois de uma análise harmônica real e de uma me
 
 - A primeira versão usa as tríades escolhidas pelo motor harmônico; não adiciona notas de passagem, ritmos independentes, sétimas tratadas, estilos avançados ou edição manual de vozes.
 - Se a melodia estiver fora do naipe escolhido ou se as restrições forem incompatíveis, o motor informa a impossibilidade em vez de transpor ou fabricar um resultado.
-- Reprodução, ensaio, exportação e persistência não fazem parte desta versão.
+- A reprodução por piano sintetizado do Lote 09 pode tocar a alternativa escolhida, mas ensaio avançado, mixer, exportação e persistência não fazem parte desta versão.

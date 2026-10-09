@@ -6,6 +6,7 @@ import './styles/transcription.css'
 import './styles/melody-editor.css'
 import './styles/harmony.css'
 import './styles/satb.css'
+import './styles/playback.css'
 
 function App() {
   return <AppShell />

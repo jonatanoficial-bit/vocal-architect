@@ -5,7 +5,7 @@ VERSÃO: 0.10.0
 LOTE: 10 — Mixer e ensaio vocal
 DATA: 2026-10-09
 BRANCH: main  
-COMMIT FUNCIONAL: pendente — mixer e ensaio vocal em validação final.
+COMMIT FUNCIONAL: bc8f27c — feat(rehearsal): add SATB mixer and regional loop.
 
 ## IMPLEMENTADO
 
@@ -56,6 +56,8 @@ COMMIT FUNCIONAL: pendente — mixer e ensaio vocal em validação final.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 69 módulos.
 - `pnpm run quality` — concluído sem erros no Lote 10: typecheck, lint, 9 arquivos/36 testes e build com 70 módulos.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído no Lote 10; bundle gerado com a base `/vocal-architect/` e 70 módulos.
+- Workflow remoto **Quality checks** — aprovado no commit `bc8f27c` ([execução 37994876147](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37994876147)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `bc8f27c` ([execução 37994876078](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37994876078)).
 - Workflow remoto **Quality checks** — aprovado no commit `326e8b6` ([execução 37954294621](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37954294621)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `326e8b6` ([execução 37954294684](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37954294684)).
 - Workflow remoto **Quality checks** — aprovado no commit `cbd788a` ([execução 37951943680](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943680)).

@@ -5,7 +5,7 @@ VERSÃO: 0.9.0
 LOTE: 09 — Reprodução SATB
 DATA: 2026-10-09
 BRANCH: main  
-COMMIT FUNCIONAL: pendente — reprodução SATB local em validação final.
+COMMIT FUNCIONAL: 326e8b6 — feat(playback): add local SATB transport.
 
 ## IMPLEMENTADO
 
@@ -51,6 +51,8 @@ COMMIT FUNCIONAL: pendente — reprodução SATB local em validação final.
 - `pnpm run lint` — concluído sem avisos no Lote 09.
 - `pnpm run test` — 8 arquivos e 31 testes aprovados no Lote 09.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído; bundle gerado com a base `/vocal-architect/` e 69 módulos.
+- Workflow remoto **Quality checks** — aprovado no commit `326e8b6` ([execução 37954294621](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37954294621)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `326e8b6` ([execução 37954294684](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37954294684)).
 - Workflow remoto **Quality checks** — aprovado no commit `cbd788a` ([execução 37951943680](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943680)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `cbd788a` ([execução 37951943704](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37951943704)).
 - Workflow remoto **Quality checks** — aprovado no commit `fee4d6f` ([execução 37948222281](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37948222281)).

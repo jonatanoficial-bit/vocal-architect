@@ -5,7 +5,7 @@ VERSÃO: 0.12.0
 LOTE: 12 — Notação e leitura musical
 DATA: 2026-10-10
 BRANCH: main  
-COMMIT FUNCIONAL: pendente — notação SATB e MusicXML em validação final.
+COMMIT FUNCIONAL: 1674cef — feat(notation): add SATB score and MusicXML.
 
 ## IMPLEMENTADO
 
@@ -72,6 +72,8 @@ COMMIT FUNCIONAL: pendente — notação SATB e MusicXML em validação final.
 - `pnpm run lint` — concluído sem avisos no Lote 12.
 - `pnpm run test` — concluído sem erros no Lote 12; 11 arquivos e 44 testes.
 - `GITHUB_ACTIONS=true pnpm exec vite build --debug` — concluído no Lote 12; base `/vocal-architect/`, 75 módulos transformados e bundle estático gerado.
+- Workflow remoto **Quality checks** — aprovado no commit `1674cef` ([execução 38056217827](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38056217827)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `1674cef` ([execução 38056217725](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38056217725)).
 - Workflow remoto **Quality checks** — aprovado no commit `556c2a2` ([execução 38053964310](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38053964310)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `556c2a2` ([execução 38053964484](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38053964484)).
 - Workflow remoto **Quality checks** — aprovado no commit `bc8f27c` ([execução 37994876147](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37994876147)).

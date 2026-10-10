@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.0 — 2026-10-10
+
+- Adicionado fluxo guiado de harmonização com instruções claras e exemplo local explicitamente identificado.
+- Adicionada troca de acordes por frase entre candidatos reais, com conflitos recalculados.
+- Adicionado editor SATB com bloqueio por nota, edição segura, desfazer/refazer, comparação e regeneração de frase.
+- Alterações que causam tessitura inválida, sobreposição, cruzamento ou paralelos perfeitos são recusadas.
+- Persistência, partitura, MusicXML, edição por arrastar, voz humana e exportação continuam indisponíveis.
+
 ## 0.10.0 — 2026-10-09
 
 - Adicionado mixer SATB local com solo, mute, volume e pan estéreo quando suportado pelo navegador.

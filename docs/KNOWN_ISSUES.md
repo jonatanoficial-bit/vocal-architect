@@ -1,6 +1,6 @@
 # Limitações conhecidas
 
-## Lote 10
+## Lote 11
 
 - A captura requer HTTPS/localhost, permissão do navegador, microfone e suporte a `MediaRecorder`; não é possível validá-la integralmente no ambiente automatizado.
 - A importação depende dos codecs aceitos por cada navegador; formatos incompatíveis ou corrompidos recebem erro de decodificação.
@@ -15,5 +15,7 @@
 - Não há acompanhamento instrumental externo, metrônomo, contagem, voz humana, automação de mix, partitura, persistência ou exportação.
 - Não há IndexedDB, exportação ou PWA instalada.
 - As sessões, os arquivos importados e as análises existem apenas enquanto a aba permanece aberta; não são projetos salvos.
-- A publicação do GitHub Pages foi confirmada até o Lote 09. A inspeção visual/manual por toque/mouse, além de arquivos de referência, microfone físico e o som Web Audio do mixer/loop em dispositivos móveis, permanece pendente.
+- A harmonia e as alternativas de acorde são sugestões locais. O botão de edição só expõe candidatas que o próprio analisador encontrou, mas a qualidade musical precisa de avaliação com repertório real.
+- A edição de SATB é temporária, usa campos de valores em vez de arrastar diretamente as notas e perde o rascunho ao trocar de alternativa ou recarregar a página.
+- A publicação do GitHub Pages foi confirmada até o Lote 10. A inspeção visual/manual por toque/mouse — incluindo o fluxo guiado, edição, arquivo de referência, microfone físico e som Web Audio do mixer/loop em dispositivos móveis — permanece pendente.
 - O conteúdo integral dos documentos mestres originais não foi publicado neste repositório público; somente um escopo técnico resumido é registrado.

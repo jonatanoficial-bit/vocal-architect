@@ -7,8 +7,9 @@ const roadmap = [
   ['06', 'Editor de melodia', 'Piano roll, correção temporal/altura, bloqueio, quantização, histórico e confirmação.', 'Concluído'],
   ['07–08', 'Inteligência harmônica', 'Teoria, progressões, avaliação e arranjo SATB.', 'Concluído'],
   ['09', 'Reprodução SATB', 'Piano local, transporte e sincronização por ticks.', 'Concluído'],
-  ['10', 'Mixer e ensaio vocal', 'Solo, mute, volume, pan, presets e loop de trecho.', 'Atual'],
-  ['11–14', 'Edição, notação, projetos e exportação', 'Fluxo musical avançado, persistência e formatos.', 'Planejado'],
+  ['10', 'Mixer e ensaio vocal', 'Solo, mute, volume, pan, presets e loop de trecho.', 'Concluído'],
+  ['11', 'Harmonia guiada e edição SATB', 'Fluxo de criação, edição segura, bloqueios, comparação e histórico.', 'Atual'],
+  ['12–14', 'Notação, projetos e exportação', 'Fluxo musical avançado, persistência e formatos.', 'Planejado'],
   ['15–16', 'Qualidade e lançamento', 'PWA, acessibilidade, auditoria e publicação.', 'Planejado'],
 ]
 

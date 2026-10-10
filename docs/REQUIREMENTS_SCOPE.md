@@ -130,3 +130,17 @@ Harmonização, arranjo SATB, transporte multipista, projetos locais, exportaç�
 
 - Acompanhamento instrumental externo, metrônomo, contagem inicial, voz humana, gravação de ensaio ou avaliação da afinação do cantor.
 - Automação de mix, efeitos, roteamento para arquivos, persistência das escolhas, edição de notas, partitura e exportação.
+
+## Entregas do Lote 11
+
+- Entrada guiada para a harmonização: instruções claras de Melodia → Análise → Arranjo SATB e exemplo local explicitamente identificado para experimentar o motor sem simular uma gravação do músico.
+- Edição de acorde por frase somente entre candidatos realmente calculados pelo motor; conflitos são recalculados para a escolha ativa.
+- Edição local de notas SATB com altura, início e duração, bloqueio individual, desfazer/refazer limitado e comparação das alterações com a alternativa original.
+- Validação que recusa alterações que saiam da tessitura, sobreponham notas da mesma voz, cruzem naipes ou introduzam quintas e oitavas paralelas.
+- Regeneração real de uma frase a partir do motor SATB atual, preservando notas bloqueadas da frase.
+- Testes para seleção de acorde, fluxo guiado de exemplo, bloqueio, edição, regeneração parcial, restrições e comparação.
+
+## Fora do escopo do Lote 11
+
+- Edição direta por arrastar no piano roll, notas de passagem automáticas, estilos de arranjo, automação de parâmetros ou recuperação das edições após recarregar.
+- Notação, MusicXML, partitura, persistência, exportação, voz humana, acompanhamento instrumental externo e análise de qualidade artística definitiva.

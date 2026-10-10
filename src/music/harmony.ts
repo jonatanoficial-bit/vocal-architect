@@ -218,3 +218,14 @@ export function analyzeHarmony(notes: NoteEvent[]): HarmonyAnalysis | null {
 
   return { candidates, chords, confidence, conflicts, phrases, tonalContext }
 }
+
+export function selectHarmonyCandidate(analysis: HarmonyAnalysis, candidate: HarmonicCandidate, notes: NoteEvent[]): HarmonyAnalysis {
+  if (!analysis.phrases.some((phrase) => phrase.id === candidate.phraseId) || !analysis.candidates.some((entry) => entry.phraseId === candidate.phraseId && entry.symbol === candidate.symbol && entry.degree === candidate.degree)) return analysis
+  const chords = analysis.chords.map((current) => current.phraseId === candidate.phraseId ? candidate : current)
+  const conflicts = chords.flatMap((chord) => {
+    const phrase = analysis.phrases.find((entry) => entry.id === chord.phraseId)
+    return phrase ? conflictsFor(phrase, chord.chord, notes, analysis.tonalContext) : []
+  })
+  const confidence = chords.length === 0 ? 0 : chords.reduce((total, chord) => total + chord.score, 0) / chords.length
+  return { ...analysis, chords, confidence, conflicts }
+}

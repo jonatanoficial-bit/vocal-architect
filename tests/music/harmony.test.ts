@@ -1,4 +1,4 @@
-import { analyzeHarmony, analyzePhrases, chordPitchClasses, chordSymbol } from '../../src/music/harmony'
+import { analyzeHarmony, analyzePhrases, chordPitchClasses, chordSymbol, selectHarmonyCandidate } from '../../src/music/harmony'
 import type { NoteEvent } from '../../src/music/types'
 import { describe, expect, it } from 'vitest'
 
@@ -35,5 +35,16 @@ describe('harmony domain', () => {
     const analysis = analyzeHarmony([note('c', 60, 0), note('e', 64, 480), note('g', 67, 960), note('chromatic', 61, 1440)])
 
     expect(analysis?.conflicts.some((conflict) => conflict.noteId === 'chromatic' && conflict.kind === 'out-of-scale')).toBe(true)
+  })
+
+  it('replaces one phrase with a real candidate and recalculates conflicts', () => {
+    const melody = [note('c', 60, 0, 'first'), note('e', 64, 480, 'first'), note('g', 67, 960, 'second'), note('a', 69, 1440, 'second')]
+    const analysis = analyzeHarmony(melody)!
+    const replacement = analysis.candidates.find((candidate) => candidate.phraseId === 'first' && candidate.symbol !== analysis.chords[0].symbol)!
+    const edited = selectHarmonyCandidate(analysis, replacement, melody)
+
+    expect(edited.chords[0]).toBe(replacement)
+    expect(edited.chords[1]).toBe(analysis.chords[1])
+    expect(edited.conflicts).not.toBe(analysis.conflicts)
   })
 })

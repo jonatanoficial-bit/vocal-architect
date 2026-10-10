@@ -40,7 +40,22 @@ describe('Vocal Architect foundation', () => {
     fireEvent.click(screen.getByRole('button', { name: /melodia/i }))
     expect(screen.getByRole('heading', { name: /editor de melodia/i })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: /harmonia/i }))
-    expect(screen.getByRole('heading', { name: /harmonia começa com uma melodia confirmada/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /vamos criar a sua primeira harmonia/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /usar exemplo de estudo/i })).toBeInTheDocument()
+  })
+
+  it('guides a study melody through real harmony analysis and SATB generation', () => {
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: /criar sessão de projeto/i }))
+    fireEvent(window, new HashChangeEvent('hashchange'))
+    fireEvent.click(screen.getByRole('button', { name: /harmonia/i }))
+    fireEvent.click(screen.getByRole('button', { name: /usar exemplo de estudo/i }))
+    expect(screen.getByRole('button', { name: /analisar harmonia/i })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /analisar harmonia/i }))
+    expect(screen.getByText(/editar a progressão proposta/i)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /gerar arranjo satb/i }))
+    expect(screen.getByText(/reprodução indisponível neste navegador/i)).toBeInTheDocument()
+    expect(screen.getByText(/ajuste uma voz com segurança/i)).toBeInTheDocument()
   })
 
   it('does not request the microphone until the user starts a recording', async () => {

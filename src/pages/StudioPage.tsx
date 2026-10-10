@@ -24,6 +24,13 @@ const workspaceSteps: { description: string; icon: Workspace; label: string }[] 
   { description: 'Gere acordes por frase', icon: 'harmony', label: 'Harmonia' },
 ]
 
+const studyMelody: NoteEvent[] = [
+  { durationTicks: 960, id: 'study-e', locked: false, origin: 'generated', phraseId: 'study-1', pitchMidi: 64, spelling: 'E4', startTick: 0, velocity: 88, voiceId: 'melody' },
+  { durationTicks: 960, id: 'study-f', locked: false, origin: 'generated', phraseId: 'study-2', pitchMidi: 65, spelling: 'F4', startTick: 960, velocity: 88, voiceId: 'melody' },
+  { durationTicks: 960, id: 'study-g', locked: false, origin: 'generated', phraseId: 'study-3', pitchMidi: 67, spelling: 'G4', startTick: 1920, velocity: 88, voiceId: 'melody' },
+  { durationTicks: 960, id: 'study-e-end', locked: false, origin: 'generated', phraseId: 'study-4', pitchMidi: 64, spelling: 'E4', startTick: 2880, velocity: 88, voiceId: 'melody' },
+]
+
 export function StudioPage() {
   const { session, createSession, renameSession } = useProjectSession()
   const audioWorkspace = useAudioWorkspace()
@@ -58,10 +65,10 @@ export function StudioPage() {
             <aside className="studio-panel tracks-panel"><div className="panel-heading"><span>01</span><h2>Gravação</h2></div><RecorderPanel onRecordingReady={audioWorkspace.processRecordedAudio} /><AudioImportPanel onImportAudio={audioWorkspace.importAudioFile} status={audioWorkspace.status} /></aside>
             <section className="studio-panel arrangement-panel"><div className="panel-heading"><span>02</span><h2>Área de áudio</h2></div><AudioAnalysisPanel analysis={audioWorkspace.analysis} asset={audioWorkspace.asset} error={audioWorkspace.error} onClear={() => { audioWorkspace.clearAudio(); transcription.clear() }} status={audioWorkspace.status} /><TranscriptionPanel asset={audioWorkspace.asset} decodedAudio={audioWorkspace.decodedAudio} error={transcriptionMatchesAsset ? transcription.error : null} processingStatus={audioWorkspace.status} result={transcriptionMatchesAsset ? transcription.result : null} status={transcriptionMatchesAsset ? transcription.status : 'idle'} onTranscribe={handleTranscribe} /></section>
           </div>
-          <section className="studio-panel transport-panel"><div className="panel-heading"><span>04</span><h2>Reprodução</h2></div><p>A reprodução da gravação está disponível no painel de Gravação. O transporte multipista e os instrumentos virtuais serão ativados no Lote 09.</p></section>
+          <section className="studio-panel transport-panel"><div className="panel-heading"><span>04</span><h2>Reprodução</h2></div><p>A reprodução da gravação está disponível no painel de Gravação. O piano SATB, mixer e modo ensaio aparecem depois que uma harmonia e um arranjo são gerados na etapa Harmonia.</p></section>
         </div>
         <div hidden={activeWorkspace !== 'melody'} id="workspace-melody"><section className="studio-panel melody-workspace"><div className="panel-heading"><span>03</span><h2>Melodia</h2></div><MelodyEditorPanel onConfirmationChange={handleConfirmationChange} sourceId={editableMelodyId} sourceNotes={editableMelodyNotes} /></section></div>
-        <div hidden={activeWorkspace !== 'harmony'} id="workspace-harmony"><section className="studio-panel"><HarmonyPanel confirmedMelody={confirmedMelody} /></section></div>
+        <div hidden={activeWorkspace !== 'harmony'} id="workspace-harmony"><section className="studio-panel"><HarmonyPanel confirmedMelody={confirmedMelody} onOpenMelody={() => setActiveWorkspace('melody')} onUseStudyExample={() => { setConfirmedMelody({ notes: studyMelody.map((note) => ({ ...note })), sourceId: 'study-example' }); setActiveWorkspace('harmony') }} /></section></div>
       </section>
     </div>
   )

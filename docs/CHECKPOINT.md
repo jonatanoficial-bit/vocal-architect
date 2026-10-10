@@ -5,7 +5,7 @@ VERSÃO: 0.11.0
 LOTE: 11 — Harmonia guiada e edição de arranjo
 DATA: 2026-10-10
 BRANCH: main  
-COMMIT FUNCIONAL: pendente — harmonia guiada e edição SATB em validação final.
+COMMIT FUNCIONAL: 556c2a2 — feat(arrangement): guide harmony and edit SATB.
 
 ## IMPLEMENTADO
 
@@ -63,6 +63,8 @@ COMMIT FUNCIONAL: pendente — harmonia guiada e edição SATB em validação fi
 - `GITHUB_ACTIONS=true pnpm run build` — concluído no Lote 10; bundle gerado com a base `/vocal-architect/` e 70 módulos.
 - `pnpm run quality` — concluído sem erros no Lote 11: typecheck, lint, 10 arquivos/42 testes e build.
 - `GITHUB_ACTIONS=true pnpm exec vite build --debug` — concluído no Lote 11; base `/vocal-architect/`, 73 módulos transformados e bundle estático gerado.
+- Workflow remoto **Quality checks** — aprovado no commit `556c2a2` ([execução 38053964310](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38053964310)).
+- Workflow remoto **Deploy GitHub Pages** — aprovado no commit `556c2a2` ([execução 38053964484](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38053964484)).
 - Workflow remoto **Quality checks** — aprovado no commit `bc8f27c` ([execução 37994876147](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37994876147)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `bc8f27c` ([execução 37994876078](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37994876078)).
 - Workflow remoto **Quality checks** — aprovado no commit `326e8b6` ([execução 37954294621](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37954294621)).

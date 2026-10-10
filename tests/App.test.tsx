@@ -15,7 +15,7 @@ describe('Vocal Architect foundation', () => {
   it('renders the project dashboard with the available harmony analysis scope', () => {
     render(<App />)
     expect(screen.getByRole('heading', { name: /o seu estúdio para projetar vozes/i })).toBeInTheDocument()
-    expect(screen.getByText(/ensaio dessas vozes em piano com mixer por naipe funcionam/i)).toBeInTheDocument()
+    expect(screen.getByText(/partitura por naipe e ensaio dessas vozes em piano com mixer funcionam/i)).toBeInTheDocument()
   })
 
   it('navigates to the architecture page through the hash router', () => {
@@ -56,6 +56,10 @@ describe('Vocal Architect foundation', () => {
     fireEvent.click(screen.getByRole('button', { name: /gerar arranjo satb/i }))
     expect(screen.getByText(/reprodução indisponível neste navegador/i)).toBeInTheDocument()
     expect(screen.getByText(/ajuste uma voz com segurança/i)).toBeInTheDocument()
+    expect(screen.getByText(/confira a partitura/i)).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: /partitura geral/i })).toHaveAttribute('aria-selected', 'true')
+    fireEvent.click(screen.getByRole('tab', { name: 'Soprano' }))
+    expect(screen.getByRole('region', { name: /partitura de soprano/i })).toBeInTheDocument()
   })
 
   it('does not request the microphone until the user starts a recording', async () => {

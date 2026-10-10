@@ -1,11 +1,11 @@
 # Checkpoint de continuidade
 
 PROJETO: VOCAL ARCHITECT  
-VERSÃO: 0.11.0
-LOTE: 11 — Harmonia guiada e edição de arranjo
+VERSÃO: 0.12.0
+LOTE: 12 — Notação e leitura musical
 DATA: 2026-10-10
 BRANCH: main  
-COMMIT FUNCIONAL: 556c2a2 — feat(arrangement): guide harmony and edit SATB.
+COMMIT FUNCIONAL: pendente — notação SATB e MusicXML em validação final.
 
 ## IMPLEMENTADO
 
@@ -38,6 +38,11 @@ COMMIT FUNCIONAL: 556c2a2 — feat(arrangement): guide harmony and edit SATB.
 - Seleção de acordes limitada às candidatas reais de cada frase, com recálculo dos conflitos e da confiança da análise escolhida.
 - Editor SATB imutável para altura, início e duração, com bloqueio de nota, validação de tessitura, sobreposição, cruzamento e paralelismos perfeitos.
 - Histórico local de até 40 alterações, desfazer/refazer, comparação com a versão original e regeneração parcial de frase que preserva notas bloqueadas.
+- Partitura SATB derivada diretamente do arranjo atual, com alternância entre grade completa e cada naipe, sem converter posições visuais em dados musicais.
+- Claves adequadas para soprano, contralto, tenor e baixo; fórmula de compasso 4/4, armadura candidata, andamento de referência e cifras da análise por frase.
+- Notas divididas por compasso de 3.840 ticks, pausas que completam cada voz e ligaduras quando uma nota cruza uma barra de compasso.
+- MusicXML 4.0 em memória com partes, atributos, notas, pausas, cifras e ligaduras, verificável na interface sem alegar download ou interoperabilidade externa já concluída.
+- Visualizador responsivo com troca por naipe e rolagem horizontal interna da pauta em telas pequenas.
 
 ## TESTADO
 
@@ -63,6 +68,10 @@ COMMIT FUNCIONAL: 556c2a2 — feat(arrangement): guide harmony and edit SATB.
 - `GITHUB_ACTIONS=true pnpm run build` — concluído no Lote 10; bundle gerado com a base `/vocal-architect/` e 70 módulos.
 - `pnpm run quality` — concluído sem erros no Lote 11: typecheck, lint, 10 arquivos/42 testes e build.
 - `GITHUB_ACTIONS=true pnpm exec vite build --debug` — concluído no Lote 11; base `/vocal-architect/`, 73 módulos transformados e bundle estático gerado.
+- `pnpm run typecheck` — concluído sem erros no Lote 12.
+- `pnpm run lint` — concluído sem avisos no Lote 12.
+- `pnpm run test` — concluído sem erros no Lote 12; 11 arquivos e 44 testes.
+- `GITHUB_ACTIONS=true pnpm exec vite build --debug` — concluído no Lote 12; base `/vocal-architect/`, 75 módulos transformados e bundle estático gerado.
 - Workflow remoto **Quality checks** — aprovado no commit `556c2a2` ([execução 38053964310](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38053964310)).
 - Workflow remoto **Deploy GitHub Pages** — aprovado no commit `556c2a2` ([execução 38053964484](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/38053964484)).
 - Workflow remoto **Quality checks** — aprovado no commit `bc8f27c` ([execução 37994876147](https://github.com/jonatanoficial-bit/vocal-architect/actions/runs/37994876147)).
@@ -88,6 +97,8 @@ COMMIT FUNCIONAL: 556c2a2 — feat(arrangement): guide harmony and edit SATB.
 - Avaliação musical com repertório anotado para tonalidade, frases, candidatas, conflitos e progressões sugeridas.
 - Avaliação com coros e repertório de referência para condução, tessitura, independência das linhas e qualidade perceptiva das alternativas SATB.
 - Fluxo de harmonia guiada, edição e regeneração parcial em navegador/dispositivo real por toque e mouse; a validação automatizada cobre as regras, mas não substitui a inspeção musical e de usabilidade.
+- Inspeção visual/manual da pauta em desktop e celular: leitura de símbolos, rolagem horizontal, troca geral/por naipe e legibilidade em telas pequenas.
+- Interoperabilidade manual do MusicXML com um leitor externo; o domínio valida sua própria estrutura, mas não há importação/validação em outro programa nesta versão.
 - Reprodução audível em navegadores e dispositivos móveis reais, incluindo autorização de áudio, pause, seek, loop regional, solo/mute, volume, pan, presets, ensaio lento e interrupções rápidas. A tentativa de abrir o navegador por automação local expirou duas vezes antes de expor uma janela.
 
 ## LIMITES ATUAIS
@@ -100,11 +111,12 @@ COMMIT FUNCIONAL: 556c2a2 — feat(arrangement): guide harmony and edit SATB.
 - O arranjo SATB é efêmero e restrito às tríades da análise atual; permite ajustes seguros por campos, mas não há tratamento de sétimas, notas de passagem, edição gráfica por arrastar, estilo avançado, persistência ou exportação.
 - A tessitura da melodia selecionada é obrigatória. Em vez de transpor ou alterar a linha, o motor informa quando ela não cabe no naipe escolhido ou quando a disposição é impossível.
 - A reprodução depende de Web Audio e usa apenas um piano sintetizado. Não há áudio original sincronizado, instrumento amostrado, acompanhamento externo, metrônomo, contagem, efeitos, automação de mix, voz humana ou exportação.
+- A notação é uma projeção local de 4/4 e 96 BPM do arranjo atual; armadura/cifras são candidatas e não há edição na pauta, impressão, PDF, download, importação ou validação externa de MusicXML.
 
 ## PRÓXIMO LOTE
 
-12 — Notação e leitura musical, somente após confirmação do proprietário e validação manual de harmonia/edição SATB em navegador ou dispositivo real.
+13 — Persistência local e projetos, somente após confirmação do proprietário e validação manual da pauta/MusicXML em navegador ou dispositivo real.
 
 ## INSTRUÇÃO DE RETOMADA
 
-Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/SATB_ENGINE.md`, `docs/PLAYBACK_ENGINE.md`, `src/music/harmony.ts`, `src/music/arrangementEditor.ts`, `src/features/harmony/HarmonyPanel.tsx`, `src/features/satb/ArrangementEditorPanel.tsx`, `src/features/satb/useArrangementDraft.ts`, `src/audio/playback/timing.ts`, `src/audio/playback/mixer.ts`, `src/features/playback/useSatbPlayback.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.
+Ler `AGENTS.md`, `docs/REQUIREMENTS_SCOPE.md`, este checkpoint, `docs/ARCHITECTURE.md`, `docs/SATB_ENGINE.md`, `docs/NOTATION_ENGINE.md`, `docs/PLAYBACK_ENGINE.md`, `src/music/harmony.ts`, `src/music/arrangementEditor.ts`, `src/music/notation.ts`, `src/features/harmony/HarmonyPanel.tsx`, `src/features/satb/ArrangementEditorPanel.tsx`, `src/features/satb/useArrangementDraft.ts`, `src/features/notation/NotationPanel.tsx`, `src/audio/playback/timing.ts`, `src/audio/playback/mixer.ts`, `src/features/playback/useSatbPlayback.ts` e os testes antes de modificar o projeto. Consultar os documentos mestres originais somente no canal privado em que foram fornecidos.

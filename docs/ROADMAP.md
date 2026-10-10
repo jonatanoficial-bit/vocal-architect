@@ -13,5 +13,6 @@
 | 09 | Reprodução SATB | Implementado e publicado; validação manual de Web Audio e dispositivos móveis permanece pendente |
 | 10 | Mixer e ensaio vocal | Mixer SATB local, presets, ensaio lento e loop regional implementados; validação manual de áudio/mobile permanece pendente |
 | 11 | Harmonia guiada e edição SATB | Fluxo guiado, exemplo local, seleção de acordes, edição segura, bloqueios, comparação, histórico e regeneração parcial implementados; validação musical/manual permanece pendente |
-| 12–14 | Notação, projetos e exportação | Não iniciado |
+| 12 | Notação e leitura musical | MusicXML local, visualizador SATB/por naipe, claves, compassos, cifras, pausas e ligaduras implementados; validação visual/manual e interoperabilidade externa permanecem pendentes |
+| 13–14 | Projetos e exportação | Não iniciado |
 | 15–16 | PWA, otimização, auditoria e lançamento | Não iniciado |

@@ -27,3 +27,7 @@
 ## ADR-007 — Edição semântica e efêmera antes de persistência
 
 **Decisão:** o Lote 06 edita uma cópia de `NoteEvent` com operações puras e histórico limitado em memória. **Motivo:** oferecer correção real, Undo/Redo e preservação de bloqueios sem corromper o áudio/transcrição de origem nem antecipar o projeto salvo do Lote 13. A confirmação de melodia vale apenas para a sessão atual e a análise tonal é apresentada como candidata, não como verdade harmônica.
+
+## ADR-008 — MusicXML próprio e visualizador leve antes da exportação
+
+**Decisão:** o Lote 12 gera MusicXML 4.0 a partir de `VocalPart` e apresenta uma pauta local responsiva, sem introduzir um renderizador editorial pesado ou um botão de exportação antecipado. **Motivo:** garantir que notas, pausas, durações, ligaduras, claves, compassos e cifras existam primeiro no domínio canônico, mantendo o bundle estático compatível com GitHub Pages. Validação por leitores externos, download, PDF e impressão ficam para o Lote 14.

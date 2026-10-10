@@ -14,6 +14,7 @@
 | Transcrição em gravações de referência | Comparação com anotação humana, ruído, portamento, respiração, erros de oitava e polifonia | Pendente de corpus e validação manual |
 | Editor de melodia | Edição canônica, bloqueio, quantização, divisão/união, histórico Undo/Redo e tonalidade candidata | Automatizado em domínio musical puro |
 | Piano roll | Seleção, painel de propriedades, zoom e controles por toque/mouse | Implementado; validação manual em navegador e dispositivos permanece pendente |
+| Partitura e MusicXML | SATB, claves, compasso, armadura, cifras, pausas, durações, ligaduras e estrutura MusicXML | Automatizado no domínio; validação visual e interoperabilidade externa pendentes |
 | Compatibilidade | Pré-requisitos de contexto seguro, microfone e `MediaRecorder` | Implementado; teste de navegador real pendente |
 | Tipos | Compilação TypeScript | Automatizado por comando |
 | Lint | Código de `src` e `tests` | Automatizado por comando |

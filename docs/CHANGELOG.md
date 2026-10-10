@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.0 — 2026-10-10
+
+- Adicionado modelo de notação SATB com partitura geral e visualização por naipe.
+- Adicionados claves adequadas, armadura candidata, compasso 4/4, andamento, cifras, pausas e ligaduras entre compassos.
+- Adicionado MusicXML 4.0 real em memória, derivado das notas do arranjo atual e verificável na interface.
+- Adicionada rolagem interna horizontal para preservar a leitura da pauta no celular.
+- Download, PDF, impressão, importação e validação com leitores externos continuam indisponíveis.
+
 ## 0.11.0 — 2026-10-10
 
 - Adicionado fluxo guiado de harmonização com instruções claras e exemplo local explicitamente identificado.

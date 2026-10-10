@@ -1,4 +1,4 @@
-# Escopo público de requisitos — Lotes 01 a 09
+# Escopo público de requisitos — Lotes 01 a 12
 
 Este repositório público registra apenas os requisitos necessários para a fundação. Os documentos mestres integrais do produto foram fornecidos separadamente e não são republicados sem autorização explícita do proprietário.
 
@@ -144,3 +144,16 @@ Harmonização, arranjo SATB, transporte multipista, projetos locais, exportaç�
 
 - Edição direta por arrastar no piano roll, notas de passagem automáticas, estilos de arranjo, automação de parâmetros ou recuperação das edições após recarregar.
 - Notação, MusicXML, partitura, persistência, exportação, voz humana, acompanhamento instrumental externo e análise de qualidade artística definitiva.
+
+## Entregas do Lote 12
+
+- Modelo local de partitura SATB derivado do arranjo atual, com partes gerais e por naipe, claves adequadas, compasso 4/4, armadura candidata, andamento e cifras por frase.
+- Divisão das vozes em compassos de 3.840 ticks, com pausas que completam o compasso e ligaduras para notas que atravessam a barra.
+- MusicXML 4.0 real em memória, com partes, atributos, notas, pausas, cifras e ligaduras; não é um botão de download vazio.
+- Visualizador responsivo que alterna entre grade SATB e cada naipe, preservando a rolagem horizontal dentro da área de pauta em telas pequenas.
+- Testes de notas, durações, pausas, ligaduras, claves, compasso, cifras e estrutura do MusicXML.
+
+## Fora do escopo do Lote 12
+
+- Edição diretamente na pauta, composição tipográfica profissional, importação de MusicXML, PDF, impressão, download/exportação ou validação por programas externos.
+- Persistência da partitura, alterações de métricas/andamento, modulações, compassos compostos, instrumentos e avaliação musical definitiva.

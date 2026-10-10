@@ -22,6 +22,8 @@ No Lote 10, `src/audio/playback/mixer.ts` mantém o estado puro de ganho, mute, 
 
 No Lote 11, `HarmonyPanel` tornou explícito o caminho de Melodia confirmada → análise → arranjo SATB e disponibiliza um exemplo local identificado para demonstrar o motor sem representar áudio do usuário. A troca de acorde usa apenas `HarmonicCandidate` já calculado por `selectHarmonyCandidate`. `src/music/arrangementEditor.ts` mantém as regras puras de edição, validação, bloqueio, comparação e regeneração de frase; `useArrangementDraft` guarda um histórico efêmero de até 40 mudanças. A interface só aceita uma alteração se o domínio validar tessitura, monofonia de cada voz, ordem SATB e paralelismos perfeitos.
 
+No Lote 12, `src/music/notation.ts` projeta `VocalPart` e a análise harmônica em `NotationScore`, com eventos de nota/pausa, compassos de 4/4, ligaduras, claves e cifras. O mesmo domínio produz o MusicXML 4.0 e valida se todo compasso soma exatamente a duração esperada. `NotationPanel` apenas mostra essa projeção em pauta geral ou por naipe, com rolagem interna horizontal no celular; ele não aceita edição e não substitui o motor canônico nem a reprodução SATB.
+
 Ao encerrar, cancelar, falhar ou desmontar o componente, as faixas do microfone são interrompidas, o contexto de análise é fechado e a URL temporária é revogada quando não é mais necessária. O áudio analisado permanece em memória enquanto a sessão estiver aberta; persistência e processamento posterior pertencem a lotes futuros.
 
 Camadas previstas: interface, aplicação, domínio musical, áudio, persistência e interoperabilidade. A sessão de projeto vive apenas na memória React; ela não simula autosave, banco local ou projetos recentes. Persistência continua reservada ao Lote 13.
